@@ -667,7 +667,7 @@ function preMet(id, tSem) {
 
 const tcr  = arr => CS.filter(c => arr.includes(gst(c.id))).reduce((s,c) => s+c.cr, 0);
 const udcr = arr => CS.filter(c => c.ud && arr.includes(gst(c.id))).reduce((s,c) => s+c.cr, 0);
-const unplaced = () => { const pl = new Set(Object.values(plan).flat()); return CS.filter(c => !pl.has(c.id) && gst(c.id)!=='completed' && gst(c.id)!=='inprogress'); };
+const unplaced = () => { const pl = new Set(Object.values(plan).flat()); return CS.filter(c => !pl.has(c.id) && gst(c.id)!=='completed'); };
 
 const DC = {core:'#2563eb', ge:'#16a34a', security:'#db2777', bigdata:'#0d9488'};
 const TC = {completed:'#16a34a', inprogress:'#d97706', planned:'#6367FF', blocked:'#ef4444'};
