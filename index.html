@@ -3,522 +3,472 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Heyam's UVU Study Map — BS Information Technology</title>
+<title>UVU IT // GRADUATION PLANNER</title>
 <style>
-/* ══════════════════════════════════════════════════════
-   PERIWINKLE & STUDIO MINT — PROFESSIONAL LIGHT THEME
-   Heyam Obied · BS Information Technology · UVU 2027
-══════════════════════════════════════════════════════ */
+/* ═══════════════════════════════════════
+   THEME VARIABLES
+═══════════════════════════════════════ */
 :root {
-  /* Canvas & surfaces */
-  --bg:       #F4F5FF;
-  --bg2:      #FFFFFF;
-  --bg3:      #EEF0FF;
-  --pool-bg:  #EDF6FF;
-
-  /* Brand palette */
-  --primary:  #6367FF;
-  --primary2: #8494FF;
-  --inactive: #C9BEFF;
-  --accent:   #FFDBFD;
-  --blush:    #F9B2D7;
-  --powder:   #CFECF3;
-  --mint:     #D9F9DF;
-  --cream:    #F6FFDC;
-
-  /* Typography */
-  --text:     #1e1b4b;
-  --text2:    #4338ca;
-  --muted:    #6b7280;
-  --border:   #e5e7eb;
-
-  /* These match the JS variable names used in template literals */
+  --bg:      #F4F5FF;
+  --bg2:     #FFFFFF;
+  --bg3:     #EEF0FF;
   --cyan:    #6367FF;
   --pink:    #db2777;
   --green:   #16a34a;
-  --purple:  #8494FF;
+  --purple:  #7c3aed;
   --yellow:  #d97706;
   --violet:  #7c3aed;
+  --text:    #1e1b4b;
   --dim:     #94a3b8;
-
-  /* Domain accent colors */
   --core:    #2563eb;
   --ge:      #16a34a;
   --sec:     #db2777;
   --bd:      #0d9488;
-  --cs-col:  #7c3aed;
-  --info-col:#ea580c;
-  --math-col:#059669;
-  --mgmt-col:#d97706;
 }
-
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html, body {
   height: 100%;
   background: var(--bg);
   color: var(--text);
-  font-family: system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-family: -apple-system, 'Segoe UI', sans-serif;
   font-size: 13px;
   overflow: hidden;
 }
 
-/* ── APP SHELL ── */
+/* ═══ APP SHELL ═══ */
 .app { display: flex; flex-direction: column; height: 100vh; }
 
-/* ── HEADER ── */
+/* ═══ HEADER ═══ */
 .hdr {
   background: white;
-  border-bottom: 2px solid var(--inactive);
-  padding: 12px 20px;
-  display: flex; align-items: center; gap: 14px;
-  flex-shrink: 0;
+  border-bottom: 2px solid #C9BEFF;
   box-shadow: 0 2px 12px rgba(99,103,255,.08);
+  padding: 10px 18px;
+  display: flex; align-items: center; gap: 14px;
+  flex-shrink: 0; position: relative;
 }
-.hdr-title { position: relative; }
+.hdr-title { position: relative; z-index: 1; }
 .hdr-sub {
-  font-size: 10px; color: var(--primary2);
-  text-transform: uppercase; letter-spacing: 1.5px;
-  margin-bottom: 3px; font-weight: 600;
+  font-size: 9px; color: var(--cyan);
+  text-transform: uppercase; letter-spacing: 2.5px;
+  font-family: monospace;
+  margin-bottom: 2px;
 }
 .hdr h1 {
-  font-size: 15px; font-weight: 800; color: var(--primary);
-  text-transform: uppercase; letter-spacing: .5px;
+  font-size: 15px; font-weight: 800; color: var(--text);
+  text-transform: uppercase; letter-spacing: 1px;
 }
 .hdr-badge {
-  font-size: 11px; font-weight: 700;
-  background: var(--accent);
-  border: 1.5px solid var(--inactive);
-  color: var(--primary); padding: 5px 14px; border-radius: 20px;
-  text-transform: uppercase; letter-spacing: .5px;
+  font-size: 9px;
+  background: var(--bg3);
+  border: 1px solid #C9BEFF;
+  color: var(--cyan); padding: 3px 10px; border-radius: 4px;
+  font-family: monospace;
+  text-transform: uppercase; letter-spacing: 1px;
 }
 .stats { display: flex; gap: 8px; margin-left: auto; }
 .stat {
   background: var(--bg3);
-  border: 1.5px solid var(--inactive);
-  padding: 5px 13px; border-radius: 8px;
-  font-size: 11px; color: var(--muted);
-  text-transform: uppercase; letter-spacing: .3px; font-weight: 600;
+  border: 1px solid #ddd6fe;
+  padding: 4px 10px; border-radius: 4px;
+  font-size: 10px; color: #94a3b8;
+  font-family: monospace;
+  text-transform: uppercase; letter-spacing: .5px;
 }
-.stat span     { color: var(--primary);  font-weight: 800; }
-.stat span.yw  { color: var(--mgmt-col); font-weight: 800; }
-.stat span.ok  { color: var(--green);    font-weight: 800; }
-.stat span.pk  { color: var(--sec);      font-weight: 800; }
+.stat span     { color: var(--cyan);   font-weight: 700; }
+.stat span.yw  { color: var(--yellow); font-weight: 700; }
+.stat span.ok  { color: var(--green);  font-weight: 700; }
+.stat span.pk  { color: var(--pink);   font-weight: 700; }
 
-/* ── TABS ── */
+/* ═══ TABS ═══ */
 .tabs {
   display: flex;
   background: white;
-  border-bottom: 1.5px solid var(--border);
-  flex-shrink: 0; padding: 0 20px; gap: 2px;
+  border-bottom: 1px solid #e2e8f0;
+  flex-shrink: 0; padding: 0 18px; gap: 0;
 }
 .tab {
-  padding: 10px 18px; cursor: pointer;
-  font-size: 12px; font-weight: 700;
-  text-transform: uppercase; letter-spacing: .7px;
-  color: var(--inactive);
-  border-bottom: 3px solid transparent;
+  padding: 9px 18px; cursor: pointer;
+  font-size: 10px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 1.2px;
+  font-family: monospace;
+  color: #94a3b8; border-bottom: 2px solid transparent;
   white-space: nowrap; transition: all .15s;
-  margin-bottom: -1.5px; border-radius: 8px 8px 0 0;
 }
-.tab:hover:not(.active) { color: var(--primary2); background: var(--bg3); }
-.tab.active.t-cyan   { color: var(--primary); border-bottom-color: var(--primary); background: var(--accent); }
-.tab.active.t-pink   { color: var(--sec);     border-bottom-color: var(--sec);     background: #fce7f3; }
-.tab.active.t-green  { color: var(--green);   border-bottom-color: var(--green);   background: var(--mint); }
-.tab.active.t-purple { color: var(--violet);  border-bottom-color: var(--violet);  background: #ede9fe; }
+.tab:hover:not(.active) { color: #6b7280; }
+.tab.active.t-cyan   { color: var(--cyan);   border-bottom-color: var(--cyan); }
+.tab.active.t-pink   { color: var(--pink);   border-bottom-color: var(--pink); }
+.tab.active.t-green  { color: var(--green);  border-bottom-color: var(--green); }
+.tab.active.t-purple { color: var(--purple); border-bottom-color: var(--purple); }
 
-/* ── CONTENT ── */
+/* ═══ CONTENT ═══ */
 .content { flex: 1; overflow: hidden; }
 .tp { display: none; height: 100%; }
 .tp.active { display: flex; }
 
-/* ════════════════════════════════
+/* ══════════════════════════════════════
    PLANNER TAB
-════════════════════════════════ */
+══════════════════════════════════════ */
 #tp-planner { flex-direction: row; overflow: hidden; }
 
 .pool {
-  width: 185px; min-width: 185px;
-  border-right: 1.5px solid var(--border);
+  width: 172px; min-width: 172px;
+  border-right: 1px solid #e2e8f0;
   display: flex; flex-direction: column;
-  background: var(--pool-bg);
+  background: var(--bg3);
 }
 .pool-h {
-  padding: 12px 14px;
-  font-size: 11px; font-weight: 800;
-  text-transform: uppercase; letter-spacing: 1px;
-  color: var(--primary);
-  border-bottom: 1px solid var(--border);
-  flex-shrink: 0;
+  padding: 10px 12px;
+  font-size: 9px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 1.5px;
+  color: var(--cyan);
+  border-bottom: 1px solid #e2e8f0;
+  font-family: monospace; flex-shrink: 0;
 }
 .pool-body {
-  flex: 1; overflow-y: auto; padding: 8px;
-  display: flex; flex-direction: column; gap: 5px;
+  flex: 1; overflow-y: auto; padding: 7px;
+  display: flex; flex-direction: column; gap: 4px;
 }
 
 .kanban { display: flex; flex: 1; overflow-x: auto; }
 
 .scol {
-  min-width: 210px; flex: 1;
+  min-width: 198px; flex: 1;
   display: flex; flex-direction: column;
-  border-right: 1px solid var(--border);
-  background: white;
+  border-right: 1px solid #e2e8f0;
 }
 .scol:last-child { border-right: none; }
 
 .sh {
-  padding: 10px 14px;
-  font-size: 12px; font-weight: 800;
-  text-transform: uppercase; letter-spacing: .8px;
-  border-bottom: 2px solid var(--border);
+  padding: 9px 12px;
+  font-size: 10px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 1px;
+  font-family: monospace;
+  border-bottom: 1px solid #e2e8f0;
+  background: white;
   display: flex; align-items: center; justify-content: space-between;
   flex-shrink: 0;
 }
 .sh-cr {
-  font-size: 11px; padding: 3px 10px; border-radius: 12px;
-  font-weight: 700; border: 1.5px solid;
+  font-size: 9px; padding: 2px 7px; border-radius: 10px;
+  font-weight: 700; border: 1px solid; font-family: monospace;
 }
 
 .sbody {
-  flex: 1; overflow-y: auto; padding: 8px;
-  display: flex; flex-direction: column; gap: 5px;
+  flex: 1; overflow-y: auto; padding: 7px;
+  display: flex; flex-direction: column; gap: 4px;
   min-height: 50px; transition: background .2s, outline .2s;
-  background: #fafbff;
+  background: var(--bg);
 }
 .sbody.dov {
-  background: var(--accent);
-  outline: 2px dashed var(--primary);
-  outline-offset: -2px;
+  background: rgba(99,103,255,.06);
+  outline: 2px dashed #6367FF;
 }
 
-/* ── COURSE CARD ── */
+/* ═══ COURSE CARD ═══ */
 .cc {
-  border-radius: 10px; padding: 9px 11px;
+  border-radius: 6px; padding: 7px 9px;
   cursor: grab; user-select: none;
   transition: all .12s;
-  border: 1px solid var(--border);
+  border: 1px solid #e2e8f0;
   background: white;
+  box-shadow: 0 1px 4px rgba(0,0,0,.06);
   position: relative;
-  box-shadow: 0 1px 4px rgba(0,0,0,.04);
 }
 .cc:active { cursor: grabbing; }
-.cc:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(99,103,255,.14);
-  border-color: var(--inactive);
-}
-.cc.dragging { opacity: .25; transform: scale(.95); }
+.cc:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,.1); }
+.cc.dragging { opacity: .3; transform: scale(.96); }
 
-/* Domain left bar */
-.d-core     { border-left: 4px solid var(--core);    }
-.d-ge       { border-left: 4px solid var(--ge);      }
-.d-security { border-left: 4px solid var(--sec);     }
-.d-bigdata  { border-left: 4px solid var(--bd);      }
-.d-cs       { border-left: 4px solid var(--cs-col);  }
-.d-info     { border-left: 4px solid var(--info-col);}
-.d-math     { border-left: 4px solid var(--math-col);}
-.d-mgmt     { border-left: 4px solid var(--mgmt-col);}
+/* Left border by domain */
+.d-core     { border-left: 3px solid var(--core); }
+.d-ge       { border-left: 3px solid var(--ge); }
+.d-security { border-left: 3px solid var(--sec); }
+.d-bigdata  { border-left: 3px solid var(--bd); }
 
-.st-completed { background: #fafff9; opacity: .82; }
-.st-blocked   { background: #fff5f8; opacity: .8; }
-.st-inprogress { background: #f8f9ff; }
+.st-completed { opacity: .55; }
+.st-blocked   { filter: saturate(.4); opacity: .7; }
 
-.ct { display: flex; align-items: center; gap: 6px; margin-bottom: 3px; }
+.ct { display: flex; align-items: center; gap: 6px; margin-bottom: 2px; }
 .ccode {
-  font-size: 11px; font-weight: 700;
-  font-family: 'SF Mono','Fira Code','Fira Mono',monospace;
-  letter-spacing: .3px;
+  font-size: 10px; font-weight: 700;
+  font-family: 'Courier New', monospace; letter-spacing: .3px;
 }
 .ccr {
-  font-size: 10px; margin-left: auto;
+  font-size: 9px; margin-left: auto;
   background: var(--bg3);
-  padding: 1px 7px; border-radius: 6px;
-  color: var(--muted); font-family: monospace; font-weight: 700;
+  padding: 1px 5px; border-radius: 4px;
+  color: #6b7280; font-family: monospace;
 }
-.cn { font-size: 11px; color: #374151; line-height: 1.3; font-weight: 500; }
-.ctags { display: flex; gap: 3px; margin-top: 5px; flex-wrap: wrap; }
+.cn { font-size: 10px; color: #64748b; line-height: 1.3; }
+.ctags { display: flex; gap: 3px; margin-top: 4px; flex-wrap: wrap; }
 .tg {
-  font-size: 9px; padding: 2px 6px; border-radius: 6px;
-  font-weight: 700; text-transform: uppercase; letter-spacing: .4px;
-  border: 1px solid;
+  font-size: 7.5px; padding: 1px 5px; border-radius: 3px;
+  font-weight: 700; text-transform: uppercase; letter-spacing: .3px;
+  border: 1px solid; font-family: monospace;
 }
-.t-bd   { color: var(--bd);       border-color: rgba(13,148,136,.3);  background: rgba(13,148,136,.08); }
-.t-sec  { color: var(--sec);      border-color: rgba(219,39,119,.3);  background: rgba(219,39,119,.08); }
-.t-ge   { color: var(--green);    border-color: rgba(22,163,74,.3);   background: rgba(22,163,74,.08);  }
-.t-we   { color: var(--mgmt-col); border-color: rgba(217,119,6,.35);  background: rgba(217,119,6,.09);  }
-.t-cap  { color: var(--sec);      border-color: rgba(219,39,119,.4);  background: rgba(219,39,119,.1);  }
-.t-crit { color: var(--primary);  border-color: rgba(99,103,255,.4);  background: rgba(99,103,255,.1);  }
+.t-bd  { color: #0d9488; border-color: rgba(13,148,136,.35); background: rgba(13,148,136,.08); }
+.t-sec { color: #db2777; border-color: rgba(219,39,119,.35); background: rgba(219,39,119,.08); }
+.t-ge  { color: #16a34a; border-color: rgba(22,163,74,.35);  background: rgba(22,163,74,.08); }
+.t-we  { color: #d97706; border-color: rgba(217,119,6,.35);  background: rgba(217,119,6,.08); }
+.t-cap { color: #7c3aed; border-color: rgba(124,58,237,.35); background: rgba(124,58,237,.08); }
+.t-crit{ color: #db2777; border-color: rgba(219,39,119,.35); background: rgba(219,39,119,.08); }
+.t-ud  { color: #2563eb; border-color: rgba(37,99,235,.35);  background: rgba(37,99,235,.08); }
 
-/* Status dot */
+/* status dot */
 .sdot {
-  position: absolute; top: 8px; right: 9px;
+  position: absolute; top: 7px; right: 8px;
   width: 7px; height: 7px; border-radius: 50%;
-  border: 2px solid white;
-  box-shadow: 0 0 0 1px rgba(0,0,0,.08);
+  border: 1.5px solid white;
 }
 
-/* ════════════════════════════════
+/* ══════════════════════════════════════
    PREREQ GRAPH
-════════════════════════════════ */
+══════════════════════════════════════ */
 #tp-graph {
   flex-direction: column; overflow: auto;
-  padding: 16px; background: var(--bg);
+  padding: 14px; background: var(--bg);
 }
 .graph-hint {
-  font-size: 11px; color: var(--muted);
-  letter-spacing: .5px; text-transform: uppercase;
-  margin-bottom: 12px; font-weight: 600;
+  font-size: 10px; color: #94a3b8;
+  font-family: monospace;
+  letter-spacing: .5px; margin-bottom: 10px;
 }
 
-/* ════════════════════════════════
+/* ══════════════════════════════════════
    PROGRESS TAB
-════════════════════════════════ */
+══════════════════════════════════════ */
 #tp-progress {
   overflow-y: auto; padding: 16px;
-  flex-direction: column; gap: 14px;
+  flex-direction: column; gap: 12px;
   background: var(--bg);
 }
 .prog-banner {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary2) 60%, #b5a9ff 100%);
-  border-radius: 14px; padding: 22px 26px; text-align: center;
-  box-shadow: 0 6px 24px rgba(99,103,255,.28);
+  background: white;
+  border: 1px solid #C9BEFF;
+  border-left: 4px solid var(--cyan);
+  border-radius: 8px; padding: 14px 18px;
+  position: relative;
 }
-.prog-banner h2 {
-  font-size: 22px; font-weight: 900; color: white;
-  text-transform: uppercase; letter-spacing: 1px;
-}
-.prog-banner p { font-size: 12px; color: rgba(255,255,255,.82); margin-top: 5px; font-weight: 500; }
+.prog-banner h2 { font-size: 18px; font-weight: 800; color: var(--text); }
+.prog-banner p  { font-size: 11px; color: #6b7280; margin-top: 4px; }
 
-.pg-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.pg-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .pg {
   background: white;
-  border: 1.5px solid var(--border);
-  border-radius: 12px; padding: 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px; padding: 14px;
   position: relative; overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0,0,0,.04);
 }
-.pg::before {
-  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-  border-radius: 12px 12px 0 0;
-}
-.pg.p-cy::before { background: linear-gradient(90deg, var(--primary), var(--primary2)); }
-.pg.p-pk::before { background: linear-gradient(90deg, var(--sec), var(--blush)); }
-.pg.p-gn::before { background: linear-gradient(90deg, var(--green), #86efac); }
-.pg.p-pu::before { background: linear-gradient(90deg, var(--violet), var(--primary)); }
-.pg.p-yw::before { background: linear-gradient(90deg, var(--mgmt-col), #fcd34d); }
+.pg::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; border-radius: 8px 8px 0 0; }
+.pg.p-cy::before { background: var(--cyan); }
+.pg.p-pk::before { background: var(--pink); }
+.pg.p-gn::before { background: var(--green); }
+.pg.p-pu::before { background: var(--purple); }
+.pg.p-yw::before { background: var(--yellow); }
+.pg.p-bd::before { background: var(--bd); }
 .pg h3 {
-  font-size: 11px; font-weight: 800;
+  font-size: 10px; font-weight: 700;
   text-transform: uppercase; letter-spacing: .8px;
-  margin-bottom: 12px;
+  margin-bottom: 10px; font-family: monospace;
 }
-.pbw {
-  background: var(--bg3); border-radius: 99px;
-  height: 8px; overflow: hidden; margin-bottom: 6px;
-}
-.pb  { height: 100%; border-radius: 99px; transition: width .7s ease; }
-.pl  {
-  display: flex; justify-content: space-between;
-  font-size: 11px; color: var(--muted); font-weight: 600;
-}
+.pbw { background: #e2e8f0; border-radius: 4px; height: 7px; overflow: hidden; margin-bottom: 5px; }
+.pb  { height: 100%; border-radius: 4px; transition: width .7s ease; }
+.pl  { display: flex; justify-content: space-between; font-size: 10px; color: #94a3b8; font-family: monospace; }
 .ri  {
-  display: flex; align-items: center; gap: 8px;
-  padding: 6px 0; border-bottom: 1px solid var(--border);
-  font-size: 12px;
+  display: flex; align-items: center; gap: 7px;
+  padding: 5px 0; border-bottom: 1px solid #f1f5f9;
+  font-size: 11px;
 }
 .ri:last-child { border-bottom: none; }
 
-/* ════════════════════════════════
+/* ══════════════════════════════════════
    DOSSIER / BINDER TAB
-════════════════════════════════ */
+══════════════════════════════════════ */
 #tp-binder {
   overflow-y: auto; flex-direction: column;
   padding: 20px; background: var(--bg); gap: 20px;
 }
 .binder-controls {
   display: flex; gap: 10px; align-items: center; flex-shrink: 0;
-  padding-bottom: 16px; border-bottom: 1.5px solid var(--border);
+  padding-bottom: 14px; border-bottom: 1px solid #e2e8f0;
 }
 .binder-controls p {
-  font-size: 11px; color: var(--muted);
-  text-transform: uppercase; letter-spacing: .4px; font-weight: 600;
+  font-size: 10px; color: #94a3b8;
+  font-family: monospace; letter-spacing: .5px;
 }
 .btn {
-  padding: 8px 18px; border: 2px solid; border-radius: 8px;
-  cursor: pointer; font-size: 11px; font-weight: 700;
-  text-transform: uppercase; letter-spacing: .7px;
+  padding: 7px 16px; border: 1.5px solid; border-radius: 6px;
+  cursor: pointer; font-size: 10px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 1px;
+  font-family: monospace;
   transition: all .15s; background: transparent;
 }
-.btn-cy { color: var(--primary); border-color: var(--primary); }
-.btn-cy:hover { background: var(--accent); }
-.btn-pk { color: var(--sec); border-color: var(--sec); }
-.btn-pk:hover { background: #fce7f3; }
+.btn-cy { color: var(--cyan); border-color: var(--cyan); }
+.btn-cy:hover { background: rgba(99,103,255,.08); }
+.btn-pk { color: var(--pink); border-color: var(--pink); }
+.btn-pk:hover { background: rgba(219,39,119,.08); }
 
 .b-section { break-inside: avoid; }
 .b-div {
-  border-left: 4px solid; padding: 9px 16px;
-  margin-bottom: 14px;
-  font-size: 12px; font-weight: 800;
-  text-transform: uppercase; letter-spacing: 1.5px;
-  background: var(--bg3);
-  border-radius: 0 10px 10px 0;
+  border-left: 3px solid; padding: 7px 14px;
+  margin-bottom: 12px;
+  font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 2px;
+  font-family: monospace;
+  background: white;
+  border-radius: 0 6px 6px 0;
   display: flex; align-items: center; gap: 10px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.05);
 }
 .b-div .b-count {
-  font-size: 10px; font-weight: 500; opacity: .65;
+  font-size: 9px; font-weight: 400; color: #94a3b8;
+  font-family: monospace;
 }
 .b-cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-  gap: 12px;
+  gap: 10px;
 }
 .bcard {
   background: white;
-  border: 1.5px solid var(--border);
-  border-radius: 12px; padding: 14px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px; padding: 13px;
   position: relative; break-inside: avoid;
-  border-left: 4px solid;
-  transition: all .15s;
-  box-shadow: 0 1px 4px rgba(0,0,0,.04);
+  border-left: 3px solid;
+  box-shadow: 0 1px 3px rgba(0,0,0,.05);
+  transition: box-shadow .15s;
 }
-.bcard:hover { box-shadow: 0 6px 20px rgba(99,103,255,.12); transform: translateY(-1px); }
+.bcard:hover { box-shadow: 0 4px 12px rgba(0,0,0,.1); }
 .bcard-code {
   font-size: 14px; font-weight: 800;
-  font-family: 'SF Mono','Fira Code',monospace; letter-spacing: .3px;
-  margin-bottom: 3px;
+  font-family: 'Courier New', monospace; letter-spacing: .5px;
+  margin-bottom: 2px;
 }
 .bcard-name {
-  font-size: 12px; color: var(--muted); margin-bottom: 10px; line-height: 1.4;
+  font-size: 11px; color: #64748b; margin-bottom: 9px; line-height: 1.4;
 }
 .bcard-row {
   display: flex; justify-content: space-between;
-  font-size: 11px; color: #9ca3af; margin-bottom: 5px;
+  font-size: 9px; color: #94a3b8; margin-bottom: 4px;
+  font-family: monospace;
 }
-.bcard-row span { color: var(--text); font-weight: 700; }
+.bcard-row span { color: #475569; }
 .bcard-pre {
-  display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px;
+  display: flex; flex-wrap: wrap; gap: 3px; margin-top: 5px;
 }
 .bcard-pre-chip {
-  font-size: 9px; padding: 2px 7px; border-radius: 6px;
-  font-family: monospace; font-weight: 700;
-  border: 1px solid var(--border); background: var(--bg3);
-  color: var(--text2);
+  font-size: 8px; padding: 1px 6px; border-radius: 3px;
+  font-family: monospace;
+  border: 1px solid #e2e8f0; background: var(--bg3);
+  color: #64748b;
 }
 .bcard-notes {
-  font-size: 11px; color: var(--muted);
-  border-top: 1px solid var(--border);
-  padding-top: 8px; margin-top: 9px;
+  font-size: 9px; color: #94a3b8;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 7px; margin-top: 8px;
   line-height: 1.5; font-style: italic;
 }
 .bcard-status {
   position: absolute; top: 10px; right: 10px;
-  font-size: 9px; font-weight: 800;
-  text-transform: uppercase;
-  padding: 2px 8px; border-radius: 6px; border: 1.5px solid;
+  font-size: 8px; font-weight: 700;
+  text-transform: uppercase; font-family: monospace;
+  padding: 2px 6px; border-radius: 3px; border: 1px solid;
 }
 .bcard-sem {
   position: absolute; bottom: 10px; right: 10px;
-  font-size: 10px; color: var(--muted); font-weight: 600;
+  font-size: 8px; color: #94a3b8;
+  font-family: monospace;
 }
-.diff-stars { font-size: 10px; letter-spacing: 1px; }
 
-/* ── MODAL ── */
+/* ══════════════════════════════════════
+   MODAL
+══════════════════════════════════════ */
 .mov {
   position: fixed; inset: 0;
-  background: rgba(30,27,75,.35);
+  background: rgba(0,0,0,.4);
   z-index: 100; display: flex; align-items: center; justify-content: center;
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(4px);
 }
 .mo {
   background: white;
-  border: 2px solid var(--inactive);
-  border-radius: 16px; padding: 24px; width: 370px;
-  box-shadow: 0 24px 70px rgba(99,103,255,.22);
+  border: 1px solid #C9BEFF;
+  border-radius: 12px; padding: 22px; width: 330px;
+  box-shadow: 0 20px 60px rgba(99,103,255,.15), 0 4px 20px rgba(0,0,0,.1);
   max-height: 90vh; overflow-y: auto; position: relative;
 }
 .mo::before {
-  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
-  background: linear-gradient(90deg, var(--primary), var(--primary2), #c4b5fd);
-  border-radius: 16px 16px 0 0;
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--cyan), var(--purple), var(--pink));
+  border-radius: 12px 12px 0 0;
 }
-.mc {
-  float: right; background: none; border: none;
-  color: var(--muted); cursor: pointer; font-size: 22px;
-  line-height: 1; font-weight: 300; transition: color .15s;
-}
-.mc:hover { color: var(--sec); }
-.mo h2 { font-size: 15px; font-weight: 800; color: var(--text); margin-bottom: 4px; }
-.mr { display: flex; gap: 10px; margin-bottom: 10px; font-size: 12px; }
-.mr label {
-  color: var(--muted); min-width: 88px; flex-shrink: 0;
-  font-size: 11px; text-transform: uppercase;
-  letter-spacing: .5px; padding-top: 2px; font-weight: 700;
-}
+.mc { float: right; background: none; border: none; color: #94a3b8; cursor: pointer; font-size: 20px; line-height: 1; }
+.mc:hover { color: var(--pink); }
+.mo h2 { font-size: 14px; font-weight: 800; color: var(--text); margin-bottom: 3px; }
+.mr { display: flex; gap: 8px; margin-bottom: 7px; font-size: 11px; }
+.mr label { color: #94a3b8; min-width: 80px; flex-shrink: 0; font-family: monospace; font-size: 9px; text-transform: uppercase; letter-spacing: .7px; padding-top: 2px; }
 .ss {
   background: var(--bg3);
-  border: 1.5px solid var(--primary2);
-  color: var(--primary); border-radius: 7px;
-  padding: 4px 10px; font-size: 12px; font-weight: 700;
+  border: 1px solid #C9BEFF;
+  color: var(--text); border-radius: 4px;
+  padding: 3px 7px; font-size: 11px;
+  font-family: monospace;
 }
 .pch {
   display: inline-flex; align-items: center;
-  background: var(--bg3); border-radius: 7px;
-  padding: 3px 9px; font-size: 11px; margin: 2px;
-  border-left: 3px solid; font-weight: 700;
-  font-family: 'SF Mono', monospace; color: var(--text);
+  background: var(--bg3); border-radius: 4px;
+  padding: 2px 8px; font-size: 10px; margin: 2px;
+  border-left: 3px solid; font-family: monospace; color: var(--text);
 }
 
-/* ── WARN TOAST ── */
+/* WARNINGS */
 .warn {
-  position: fixed; top: 72px; right: 16px; z-index: 200;
+  position: fixed; top: 70px; right: 16px; z-index: 200;
   background: #fce7f3;
-  border: 1.5px solid var(--blush);
-  border-radius: 10px; padding: 12px 16px;
-  font-size: 12px; color: #be185d;
-  max-width: 300px;
-  box-shadow: 0 6px 24px rgba(219,39,119,.16);
-  font-weight: 700;
+  border: 1.5px solid #f9a8d4;
+  border-radius: 8px; padding: 10px 14px;
+  font-size: 11px; color: var(--pink);
+  max-width: 280px;
+  box-shadow: 0 4px 16px rgba(219,39,119,.15);
   animation: fin .2s;
 }
-@keyframes fin { from { opacity:0; transform: translateY(-8px); } to { opacity:1; transform: translateY(0); } }
+@keyframes fin { from { opacity:0; transform: translateY(-6px); } to { opacity:1; transform: translateY(0); } }
 
-/* ── LEGEND ── */
+/* LEGEND */
 .leg {
-  display: flex; gap: 14px; flex-wrap: wrap;
-  padding: 8px 20px;
+  display: flex; gap: 12px; flex-wrap: wrap;
+  padding: 6px 18px;
   background: white;
-  border-top: 1.5px solid var(--border);
-  font-size: 11px; flex-shrink: 0;
-  text-transform: uppercase; letter-spacing: .4px; font-weight: 700;
+  border-top: 1px solid #e2e8f0;
+  font-size: 10px; flex-shrink: 0;
+  font-family: monospace;
+  text-transform: uppercase; letter-spacing: .5px;
 }
-.li { display: flex; align-items: center; gap: 5px; color: var(--muted); }
-.ld { width: 10px; height: 10px; border-radius: 3px; flex-shrink: 0; }
-.leg-tip { margin-left: auto; color: var(--inactive); font-size: 10px; font-weight: 600; }
+.li { display: flex; align-items: center; gap: 5px; color: #64748b; }
+.ld { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+.leg-tip { margin-left: auto; color: #cbd5e1; font-size: 9px; }
 
 ::-webkit-scrollbar { width: 4px; height: 4px; }
-::-webkit-scrollbar-thumb { background: var(--inactive); border-radius: 4px; }
+::-webkit-scrollbar-thumb { background: #c7d2fe; border-radius: 4px; }
 ::-webkit-scrollbar-track { background: transparent; }
-
 .empty-drop {
-  text-align: center; color: var(--inactive); font-size: 11px;
-  padding: 20px 0; text-transform: uppercase; letter-spacing: 1px; font-weight: 700;
+  text-align: center; color: #cbd5e1; font-size: 9px;
+  padding: 20px 0; font-family: monospace;
+  text-transform: uppercase; letter-spacing: 1.5px;
 }
 
-/* ── PRINT ── */
+/* ══════════════════════════════════════
+   PRINT STYLES
+══════════════════════════════════════ */
 @media print {
-  html, body { height: auto; overflow: visible !important; background: white !important; color: #000 !important; }
+  html, body { height: auto; overflow: visible !important; }
   .hdr, .tabs, .leg { display: none !important; }
   .content { height: auto !important; overflow: visible !important; }
   .tp { display: none !important; }
-  #tp-binder {
-    display: flex !important; padding: 12px !important;
-    background: white !important; height: auto !important;
-    overflow: visible !important;
-  }
+  #tp-binder { display: flex !important; padding: 12px !important; height: auto !important; overflow: visible !important; }
   .binder-controls { display: none !important; }
   .b-section { break-before: page; }
   .b-section:first-child { break-before: auto; }
-  .b-div { background: #f0f0f0 !important; }
-  .bcard { background: white !important; box-shadow: none !important; }
-  .bcard-code { color: #000 !important; }
+  .bcard { break-inside: avoid; box-shadow: none !important; }
   .b-cards { grid-template-columns: repeat(3, 1fr); }
 }
 </style>
@@ -526,30 +476,30 @@ html, body {
 <body>
 <div class="app">
 
-<!-- ── HEADER ── -->
+<!-- ═══ HEADER ═══ -->
 <header class="hdr">
   <div class="hdr-title">
-    <div class="hdr-sub">Utah Valley University · Degree Planning</div>
+    <div class="hdr-sub">Utah Valley University — Degree Planning System</div>
     <h1>BS Information Technology &nbsp;·&nbsp; BI &amp; Big Data Concentration</h1>
   </div>
-  <span class="hdr-badge">Target: Summer–Fall 2027</span>
+  <span class="hdr-badge">Advisor: L. Cracroft · lcracroft@uvu.edu</span>
   <div class="stats">
     <div class="stat">Earned: <span id="s-done">0</span>/122 cr</div>
     <div class="stat">Upper Div: <span id="s-ud">0</span>/40</div>
-    <div class="stat">Grad: <span id="s-grad" class="yw">Fall 2027</span></div>
-    <div class="stat">Status: <span id="s-status" class="ok">ON TRACK</span></div>
+    <div class="stat">Grad: <span id="s-grad" class="yw">Summer/Fall 2027</span></div>
+    <div class="stat">Status: <span id="s-status" class="ok">IN PROGRESS</span></div>
   </div>
 </header>
 
-<!-- ── TABS ── -->
+<!-- ═══ TABS ═══ -->
 <nav class="tabs">
-  <div class="tab t-cyan active"  onclick="sw('planner')">📋 Semester Planner</div>
-  <div class="tab t-pink"         onclick="sw('graph')">🗺 Prereq Map</div>
-  <div class="tab t-green"        onclick="sw('progress')">📊 Grad Status</div>
-  <div class="tab t-purple"       onclick="sw('binder')">📁 Course Binder</div>
+  <div class="tab t-cyan active" onclick="sw('planner')">📅 Planner</div>
+  <div class="tab t-pink"        onclick="sw('graph')">🔗 Prereq Map</div>
+  <div class="tab t-green"       onclick="sw('progress')">📊 Grad Status</div>
+  <div class="tab t-purple"      onclick="sw('binder')">📁 Dossier / Binder</div>
 </nav>
 
-<!-- ── CONTENT ── -->
+<!-- ═══ CONTENT ═══ -->
 <div class="content">
 
   <!-- PLANNER -->
@@ -564,122 +514,123 @@ html, body {
 
   <!-- PREREQ GRAPH -->
   <div id="tp-graph" class="tp">
-    <div class="graph-hint">Hover to highlight chain · Click to inspect · Color = course type · Dot = status</div>
+    <div class="graph-hint">Hover to highlight chain · Click to inspect · Color = domain · Dot = status</div>
     <svg id="gsvg"></svg>
   </div>
 
   <!-- PROGRESS -->
   <div id="tp-progress" class="tp"></div>
 
-  <!-- BINDER -->
+  <!-- DOSSIER/BINDER -->
   <div id="tp-binder" class="tp"></div>
 
 </div>
 
-<!-- ── LEGEND ── -->
+<!-- LEGEND -->
 <div class="leg">
-  <div class="li"><div class="ld" style="background:var(--cs-col)"></div><span>CS / Programming</span></div>
-  <div class="li"><div class="ld" style="background:var(--core)"></div><span>IT Infrastructure</span></div>
-  <div class="li"><div class="ld" style="background:var(--info-col)"></div><span>INFO / Systems</span></div>
-  <div class="li"><div class="ld" style="background:var(--bd)"></div><span>BI &amp; Big Data</span></div>
-  <div class="li"><div class="ld" style="background:var(--sec)"></div><span>Cybersecurity</span></div>
-  <div class="li"><div class="ld" style="background:var(--mgmt-col)"></div><span>MGMT / Stats</span></div>
-  <div class="li"><div class="ld" style="background:var(--ge)"></div><span>Gen Ed</span></div>
-  <span style="width:1px;background:var(--border);margin:0 4px;align-self:stretch"></span>
-  <div class="li"><div class="ld" style="background:var(--green);border-radius:50%"></div><span>Done</span></div>
-  <div class="li"><div class="ld" style="background:var(--primary);border-radius:50%"></div><span>In Progress</span></div>
-  <div class="li"><div class="ld" style="background:var(--primary2);border-radius:50%"></div><span>Planned</span></div>
-  <div class="li"><div class="ld" style="background:var(--sec);border-radius:50%"></div><span>Blocked</span></div>
+  <div class="li"><div class="ld" style="background:#2563eb"></div>Core IT</div>
+  <div class="li"><div class="ld" style="background:#16a34a"></div>Gen Ed</div>
+  <div class="li"><div class="ld" style="background:#db2777"></div>Security</div>
+  <div class="li"><div class="ld" style="background:#0d9488"></div>Big Data</div>
+  <span style="width:1px;background:#e2e8f0;margin:0 4px;align-self:stretch"></span>
+  <div class="li"><div class="ld" style="background:#16a34a"></div>Done</div>
+  <div class="li"><div class="ld" style="background:#d97706"></div>In Progress</div>
+  <div class="li"><div class="ld" style="background:#6367FF"></div>Planned</div>
+  <div class="li"><div class="ld" style="background:#ef4444"></div>Blocked</div>
   <span class="leg-tip">Drag cards between semesters · Click any card to edit status</span>
 </div>
 </div>
 
-<!-- ── MODAL ── -->
+<!-- MODAL -->
 <div class="mov" id="modal" style="display:none" onclick="cmi(event)">
   <div class="mo" id="mc"></div>
 </div>
 
 <script>
-// ═══════════════════════════════════
-// COURSE DATABASE — HEYAM'S ACTUAL AUDIT
-// ═══════════════════════════════════
+// ═══════════════════════════════════════════════════
+// COURSE DATABASE — UVU BS IT / BI & Big Data
+// Advisor: Lindsey Cracroft (LCracroft@uvu.edu)
+// Total Required: 122 credits | Upper Div: 40cr
+// ═══════════════════════════════════════════════════
 const CS = [
-  // ── GEN ED COMPLETED ──
-  {id:'ENGL1010', code:'ENGL 1010', name:'Intro to Academic Writing',      cr:3, pre:[],                      dom:'ge',   tags:['ge','we'],       st:'completed', ud:false, diff:2, notes:'Writing Enriched. Completed Summer 2021. GPA: B-'},
-  {id:'ENGL2010', code:'ENGL 2010', name:'Intermediate Writing',           cr:3, pre:['ENGL1010'],             dom:'ge',   tags:['ge'],            st:'completed', ud:false, diff:2, notes:'Completed Fall 2021. GPA: C'},
-  {id:'MATH1060', code:'MATH 1060', name:'Trigonometry',                   cr:3, pre:[],                      dom:'ge',   tags:['ge'],            st:'completed', ud:false, diff:3, notes:'Quantitative Literacy GE. Completed Fall 2024. GPA: B+'},
-  {id:'POLS1000', code:'POLS 1000', name:'American Heritage',              cr:3, pre:[],                      dom:'ge',   tags:['ge'],            st:'completed', ud:false, diff:1, notes:'American Institutions GE. Completed Fall 2021. GPA: B'},
-  {id:'PHIL205G', code:'PHIL 205G', name:'Ethics and Values',              cr:3, pre:[],                      dom:'ge',   tags:['ge','gi'],       st:'completed', ud:false, diff:2, notes:'Global Intercultural ✓ — GI requirement complete. Completed Fall 2023. GPA: B-'},
-  {id:'HLTH1100', code:'HLTH 1100', name:'Personal Health & Wellness',     cr:2, pre:[],                      dom:'ge',   tags:['ge'],            st:'completed', ud:false, diff:1, notes:'Health/PE GE. Completed Summer 2021. GPA: A-'},
-  {id:'THEA1023', code:'THEA 1023', name:'Introduction to Film',           cr:3, pre:[],                      dom:'ge',   tags:['ge'],            st:'completed', ud:false, diff:1, notes:'Fine Arts GE. Completed Fall 2021. GPA: B-'},
-  {id:'COMM2110', code:'COMM 2110', name:'Interpersonal Communication',    cr:3, pre:[],                      dom:'ge',   tags:['ge'],            st:'completed', ud:false, diff:2, notes:'Social/Behavioral Science GE. Completed Spring 2022. GPA: C'},
-  {id:'BIOL1010', code:'BIOL 1010', name:'General Biology',                cr:3, pre:[],                      dom:'ge',   tags:['ge'],            st:'completed', ud:false, diff:2, notes:'Biology Distribution GE. Completed Spring 2022. GPA: B+'},
-  {id:'METO1010', code:'METO 1010', name:'Intro to Meteorology',           cr:3, pre:[],                      dom:'ge',   tags:['ge'],            st:'completed', ud:false, diff:2, notes:'Third Science Distribution GE. Completed Fall 2023. GPA: A'},
+  // ── GEN ED COMPLETED ──────────────────────────────
+  {id:'ENGL1010', code:'ENGL 1010', name:'Intro to Writing',              cr:3, pre:[],                   dom:'ge',      tags:['ge','we'],       st:'completed', ud:false, diff:1, notes:'Writing Enriched (WE #1 of 2). Completed.'},
+  {id:'ENGL2010', code:'ENGL 2010', name:'Intermediate Writing',          cr:3, pre:['ENGL1010'],          dom:'ge',      tags:['ge','we'],       st:'completed', ud:false, diff:2, notes:'Writing Enriched. Completed.'},
+  {id:'MATH1060', code:'MATH 1060', name:'Trigonometry',                  cr:3, pre:[],                   dom:'ge',      tags:['ge'],            st:'completed', ud:false, diff:3, notes:''},
+  {id:'POLS1000', code:'POLS 1000', name:'American Heritage',             cr:3, pre:[],                   dom:'ge',      tags:['ge'],            st:'completed', ud:false, diff:1, notes:'American Institutions GE.'},
+  {id:'PHIL205G', code:'PHIL 205G', name:'Ethics & Values',               cr:3, pre:[],                   dom:'ge',      tags:['ge'],            st:'completed', ud:false, diff:2, notes:'GI requirement complete.'},
+  {id:'HLTH1100', code:'HLTH 1100', name:'Personal Health',               cr:2, pre:[],                   dom:'ge',      tags:['ge'],            st:'completed', ud:false, diff:1, notes:'Health/PE GE.'},
+  {id:'THEA1023', code:'THEA 1023', name:'Intro to Film',                 cr:3, pre:[],                   dom:'ge',      tags:['ge'],            st:'completed', ud:false, diff:1, notes:'Fine Arts GE.'},
+  {id:'COMM2110', code:'COMM 2110', name:'Interpersonal Communication',   cr:3, pre:[],                   dom:'ge',      tags:['ge'],            st:'completed', ud:false, diff:2, notes:'Behavioral/Social Science GE.'},
+  {id:'BIOL1010', code:'BIOL 1010', name:'General Biology',               cr:3, pre:[],                   dom:'ge',      tags:['ge'],            st:'completed', ud:false, diff:2, notes:'Life Science GE.'},
+  {id:'METO1010', code:'METO 1010', name:'Meteorology',                   cr:3, pre:[],                   dom:'ge',      tags:['ge'],            st:'completed', ud:false, diff:2, notes:'Physical Science GE.'},
+  {id:'BIOL1610', code:'BIOL 1610', name:'College Biology I',             cr:4, pre:[],                   dom:'ge',      tags:['ge'],            st:'completed', ud:false, diff:3, notes:'Lab science GE.'},
 
-  // ── GEN ED IN PROGRESS / REGISTERED (Fall 2026) ──
-  {id:'ENGL2100', code:'ENGL 2100', name:'Technical Communication',        cr:3, pre:['ENGL1010'],             dom:'ge',   tags:['ge','we'],       st:'inprogress',ud:false, diff:2, notes:'Writing Enriched ✓ — 2nd of 2 required WE courses. Registered Fall 2026. Counts as Humanities GE.'},
-  {id:'PHYS2010', code:'PHYS 2010', name:'College Physics I',              cr:4, pre:[],                      dom:'ge',   tags:['ge'],            st:'inprogress',ud:false, diff:4, notes:'Physical Science Distribution GE. Registered Fall 2026.'},
-  {id:'PHYS2015', code:'PHYS 2015', name:'College Physics I Lab',          cr:1, pre:['PHYS2010'],             dom:'ge',   tags:['ge'],            st:'inprogress',ud:false, diff:2, notes:'Physical Science Lab — co-req with PHYS 2010. Registered Fall 2026.'},
+  // ── IT CORE COMPLETED ─────────────────────────────
+  {id:'CS1400',   code:'CS 1400',   name:'Fundamentals of Programming',   cr:3, pre:[],                   dom:'core',    tags:['core'],          st:'completed', ud:false, diff:2, notes:'Gateway programming course. Prereq for CS 1410, CS 2810, INFO 2200.'},
+  {id:'CS2810',   code:'CS 2810',   name:'Computer Architecture',         cr:3, pre:['CS1400'],            dom:'core',    tags:['core'],          st:'completed', ud:false, diff:3, notes:'Substitutes IT 1600. Prereq for IT 2600.'},
+  {id:'INFO405G', code:'INFO 405G', name:'Global Ethics in IT',           cr:3, pre:[],                   dom:'core',    tags:['core','we','ud'], st:'completed', ud:true,  diff:3, notes:'Writing Enriched (WE #2). Upper Division. Satisfies IT ethics requirement.'},
+  {id:'INFO1120', code:'INFO 1120', name:'IT Fundamentals',               cr:3, pre:[],                   dom:'core',    tags:['core'],          st:'completed', ud:false, diff:1, notes:'Prereq for INFO 2420.'},
+  {id:'INFO2200', code:'INFO 2200', name:'Programming II',                cr:3, pre:['CS1400'],            dom:'core',    tags:['core'],          st:'completed', ud:false, diff:3, notes:'Prereq for INFO 3430.'},
+  {id:'INFO2410', code:'INFO 2410', name:'Database Fundamentals',         cr:3, pre:['INFO1120'],          dom:'core',    tags:['core','bd'],     st:'completed', ud:false, diff:3, notes:'Prereq for INFO 3410 (Big Data concentration).'},
+  {id:'IT1510',   code:'IT 1510',   name:'Linux/UNIX Admin',              cr:3, pre:[],                   dom:'core',    tags:['core'],          st:'completed', ud:false, diff:2, notes:'Prereq for IT 3510 (Advanced Linux).'},
+  {id:'DGM1110',  code:'DGM 1110',  name:'Digital Media Essentials',      cr:4, pre:[],                   dom:'core',    tags:['core'],          st:'completed', ud:false, diff:1, notes:'Application Domain — 4 of 6 credits complete. Need 2 more (DWDD 1600 or DGM 3120G).'},
 
-  // ── IT CORE COMPLETED ──
-  {id:'CS1400',  code:'CS 1400',  name:'Fundamentals of Programming',      cr:3, pre:[],                      dom:'cs',   tags:['core'],          st:'completed', ud:false, diff:3, notes:'Computer Programming I — IT Core. Completed Fall 2023. GPA: A-'},
-  {id:'CS2810',  code:'CS 2810',  name:'Computer Org. & Architecture',     cr:3, pre:[],                      dom:'cs',   tags:['core'],          st:'completed', ud:false, diff:3, notes:'ADVISOR SUBSTITUTION: Replaces IT 1600. Approved by Lindsey Cracroft 10/28/2025. Completed Fall 2024. GPA: C-'},
-  {id:'INFO1120',code:'INFO 1120',name:'IT Fundamentals',                  cr:3, pre:[],                      dom:'info', tags:['core'],          st:'completed', ud:false, diff:2, notes:'Gateway course for IT program. Completed Spring 2026. GPA: A'},
-  {id:'INFO2200',code:'INFO 2200',name:'Computer Programming II for IS/IT',cr:3, pre:['CS1400'],               dom:'info', tags:['core'],          st:'completed', ud:false, diff:3, notes:'Completed Spring 2026. GPA: A'},
-  {id:'INFO2410',code:'INFO 2410',name:'Database Fundamentals',            cr:3, pre:['INFO1120'],             dom:'info', tags:['core'],          st:'completed', ud:false, diff:3, notes:'Prereq for INFO 3410 (BI concentration). Completed Spring 2026. GPA: A'},
-  {id:'IT1510',  code:'IT 1510',  name:'Intro Sys Admin — Linux/UNIX',     cr:3, pre:['INFO1120'],             dom:'core', tags:['core'],          st:'completed', ud:false, diff:3, notes:'Prereq for IT 3510. Completed Spring 2026. GPA: A'},
-  {id:'INFO405G',code:'INFO 405G',name:'Global Ethical Perspectives',      cr:3, pre:[],                      dom:'info', tags:['core','we','ud'],st:'completed', ud:true,  diff:2, notes:'Writing Enriched ✓ + Global Intercultural ✓ — 1 of 2 WE done. Completed Fall 2024. GPA: C. Upper Division.'},
-  {id:'DGM1110', code:'DGM 1110', name:'Digital Media Essentials I',       cr:4, pre:[],                      dom:'ge',   tags:['domain'],        st:'completed', ud:false, diff:2, notes:'Application Domain: Digital Media — 4 of 6 credits complete. Need 2 more credits. Completed Spring 2026. GPA: A-'},
+  // ── SUMMER 2026 — IN PROGRESS ─────────────────────
+  {id:'CS1410',   code:'CS 1410',   name:'Object Oriented Programming',   cr:3, pre:['CS1400'],            dom:'core',    tags:['core'],          st:'inprogress', ud:false, diff:3, notes:'Summer 2026. Prereq for further CS coursework.'},
+  {id:'CS2300',   code:'CS 2300',   name:'Discrete Math Structures I',   cr:3, pre:['MATH1060'],           dom:'core',    tags:['core'],          st:'inprogress', ud:false, diff:4, notes:'Summer 2026.'},
+  {id:'INFO2420', code:'INFO 2420', name:'Web Application Design',        cr:3, pre:['INFO1120'],           dom:'core',    tags:['core'],          st:'inprogress', ud:false, diff:3, notes:'Summer 2026. Prereq for INFO 3300.'},
+  {id:'IT2600',   code:'IT 2600',   name:'Data Communication',            cr:3, pre:['CS2810'],             dom:'core',    tags:['core','sec'],    st:'inprogress', ud:false, diff:3, notes:'Summer 2026. Prereq for IT 3200, IT 3600, CYBR 2700.'},
 
-  // ── IT CORE IN PROGRESS — Summer 2026 ──
-  {id:'CS1410',  code:'CS 1410',  name:'Object Oriented Programming',      cr:3, pre:['CS1400'],               dom:'cs',   tags:['core','crit'],   st:'inprogress',ud:false, diff:3, notes:'IN PROGRESS Summer 2026. Prereq for CS 2300. Third attempt — do NOT drop.'},
-  {id:'CS2300',  code:'CS 2300',  name:'Discrete Math Structures I',       cr:3, pre:['CS1410','MATH1060'],     dom:'math', tags:['core'],          st:'inprogress',ud:false, diff:4, notes:'IN PROGRESS Summer 2026. Math requirement for IT Core. Prereqs: CS 1410 + MATH 1060.'},
-  {id:'INFO2420',code:'INFO 2420',name:'Web Application Design',           cr:3, pre:['INFO1120'],              dom:'info', tags:['core'],          st:'inprogress',ud:false, diff:3, notes:'IN PROGRESS Summer 2026. Prereq for INFO 3330, 3360. Already registered Summer 2026.'},
-  {id:'IT2600',  code:'IT 2600',  name:'Data Communication',               cr:3, pre:['INFO1120'],              dom:'core', tags:['core','crit'],   st:'inprogress',ud:false, diff:3, notes:'IN PROGRESS Summer 2026. CRITICAL UNLOCK: enables CYBR 2700, IT 3200, IT 3510, IT 3600.'},
+  // ── FALL 2026 — REGISTERED ────────────────────────
+  {id:'CYBR2700', code:'CYBR 2700', name:'Info Security Fundamentals',    cr:3, pre:['IT2600'],             dom:'security',tags:['sec'],           st:'inprogress', ud:false, diff:3, notes:'Fall 2026. Prereq for CYBR 4700 (Capstone chain).'},
+  {id:'ENGL2100', code:'ENGL 2100', name:'Technical Communication',       cr:3, pre:['ENGL2010'],           dom:'ge',      tags:['ge','we'],       st:'inprogress', ud:false, diff:2, notes:'Fall 2026. Writing Enriched. Humanities GE.'},
+  {id:'IT2530',   code:'IT 2530',   name:'Intro Sys Admin Windows',       cr:3, pre:[],                   dom:'core',    tags:['core'],          st:'inprogress', ud:false, diff:2, notes:'Fall 2026. Prereq for IT 3530.'},
+  {id:'MGMT2340', code:'MGMT 2340', name:'Business Statistics I',         cr:3, pre:['MATH1060'],           dom:'core',    tags:['core'],          st:'inprogress', ud:false, diff:3, notes:'Fall 2026. Prereq for INFO 3130 (Big Data concentration).'},
+  {id:'PHYS2010', code:'PHYS 2010', name:'College Physics I',             cr:4, pre:[],                   dom:'ge',      tags:['ge'],            st:'inprogress', ud:false, diff:4, notes:'Fall 2026. Physical Science GE with lab.'},
+  {id:'PHYS2015', code:'PHYS 2015', name:'College Physics I Lab',         cr:1, pre:['PHYS2010'],           dom:'ge',      tags:['ge'],            st:'inprogress', ud:false, diff:2, notes:'Fall 2026. Lab component of PHYS 2010.'},
 
-  // ── FALL 2026 REGISTERED ──
-  {id:'CYBR2700',code:'CYBR 2700',name:'Info Security Fundamentals',       cr:3, pre:['IT2600'],               dom:'security',tags:['core','sec'], st:'inprogress',ud:false, diff:3, notes:'REGISTERED Fall 2026. Prereq for CYBR 4700 (capstone path). Prereq: IT 2600.'},
-  {id:'IT2530',  code:'IT 2530',  name:'Intro Sys Admin — Windows',        cr:3, pre:['CS2810'],               dom:'core', tags:['core'],          st:'inprogress',ud:false, diff:3, notes:'REGISTERED Fall 2026. Prereq for IT 3530. Prereq: IT 1600/CS 2810 (done).'},
-  {id:'MGMT2340',code:'MGMT 2340',name:'Business Statistics I',            cr:3, pre:[],                       dom:'mgmt', tags:['core','crit'],   st:'inprogress',ud:false, diff:3, notes:'REGISTERED Fall 2026. CRITICAL: Prereq for INFO 3130 (BI concentration entry point).'},
+  // ── IT CORE PLANNED ───────────────────────────────
+  {id:'INFO3300', code:'INFO 3300', name:'Web Systems Development',        cr:3, pre:['INFO2420'],           dom:'core',    tags:['core','ud'],     st:'planned', ud:true,  diff:3, notes:'Prereq: INFO 2420.'},
+  {id:'INFO3430', code:'INFO 3430', name:'Systems Analysis & Design',     cr:3, pre:['INFO2200'],           dom:'core',    tags:['core','ud'],     st:'planned', ud:true,  diff:3, notes:'Prereq: INFO 2200.'},
+  {id:'IT3200',   code:'IT 3200',   name:'Cloud Foundations',             cr:3, pre:['IT2600'],             dom:'core',    tags:['core','ud'],     st:'planned', ud:true,  diff:3, notes:'Prereq: IT 2600.'},
+  {id:'IT3510',   code:'IT 3510',   name:'Advanced Linux Admin',          cr:3, pre:['IT1510'],             dom:'core',    tags:['core','ud'],     st:'planned', ud:true,  diff:3, notes:'Prereq: IT 1510.'},
+  {id:'IT3530',   code:'IT 3530',   name:'Advanced Windows Admin',        cr:3, pre:['IT2530'],             dom:'core',    tags:['core','ud'],     st:'planned', ud:true,  diff:3, notes:'Prereq: IT 2530.'},
+  {id:'IT3600',   code:'IT 3600',   name:'Internetworking & Router Mgmt', cr:3, pre:['IT2600'],             dom:'core',    tags:['core','ud','crit'],st:'planned', ud:true, diff:4, notes:'Prereq: IT 2600. Unlocks IT 4300 and IT 4600.'},
+  {id:'IT4300',   code:'IT 4300',   name:'IoT',                           cr:3, pre:['IT3600'],             dom:'core',    tags:['core','ud'],     st:'planned', ud:true,  diff:3, notes:'Prereq: IT 3600.'},
+  {id:'IT4600',   code:'IT 4600',   name:'Enterprise Network Architectures',cr:3,pre:['IT3600'],            dom:'core',    tags:['core','ud','crit'],st:'planned', ud:true, diff:4, notes:'Prereq: IT 3600. Required for IT 4750 Capstone.'},
+  {id:'CYBR4700', code:'CYBR 4700', name:'Enterprise Cybersecurity Mgmt', cr:3, pre:['CYBR2700'],           dom:'security',tags:['sec','ud','crit'],st:'planned', ud:true,  diff:4, notes:'Prereq: CYBR 2700. Required for IT 4750 Capstone.'},
+  {id:'IT4750',   code:'IT 4750',   name:'IT Operations Capstone',        cr:3, pre:['IT4600','CYBR4700'],  dom:'core',    tags:['core','ud','cap','crit'],st:'planned', ud:true, diff:5, notes:'🎓 GRADUATION CAPSTONE. Requires BOTH IT 4600 AND CYBR 4700.'},
 
-  // ── UPPER DIVISION IT CORE — STILL NEEDED ──
-  {id:'INFO3300',code:'INFO 3300',name:'Web Systems Development',          cr:3, pre:['INFO2420','INFO2410'],   dom:'info', tags:['core','ud'],    st:'planned', ud:true,  diff:3, notes:'Prereqs: INFO 2420 (in progress) + INFO 2410 (done). Offered Fa/Sp/Su.'},
-  {id:'INFO3430',code:'INFO 3430',name:'Systems Analysis & Design',        cr:3, pre:['INFO2410','INFO2420'],   dom:'info', tags:['core','ud','crit'],st:'planned',ud:true, diff:3, notes:'CRITICAL PATH: Prereq for CYBR 4700 and IT 4750 Capstone. Plan Spring 2027.'},
-  {id:'IT3200',  code:'IT 3200',  name:'Cloud Foundations',                cr:3, pre:['IT2600'],               dom:'core', tags:['core','ud'],    st:'planned', ud:true,  diff:3, notes:'Prereq: IT 2600. Offered Fa/Sp only. Plan Spring 2027.'},
-  {id:'IT3510',  code:'IT 3510',  name:'Advanced Sys Admin — Linux',       cr:3, pre:['IT1510','IT2600'],       dom:'core', tags:['core','ud'],    st:'planned', ud:true,  diff:4, notes:'Prereq: IT 1510 (done) + IT 2600 (in progress). Unlocks IT 4300.'},
-  {id:'IT3530',  code:'IT 3530',  name:'Advanced Sys Admin — Windows',     cr:3, pre:['IT2530','IT2600'],       dom:'core', tags:['core','ud'],    st:'planned', ud:true,  diff:4, notes:'Prereq: IT 2530 (Fall 2026) + IT 2600. Unlocks IT 4300.'},
-  {id:'IT3600',  code:'IT 3600',  name:'Internetworking & Router Mgmt',    cr:3, pre:['IT2600'],               dom:'core', tags:['core','ud','crit'],st:'planned',ud:true, diff:4, notes:'CRITICAL PATH: Prereq for IT 4600 and IT 4300. Prereq: IT 2600.'},
-  {id:'IT4300',  code:'IT 4300',  name:'IoT — Internet of Things',         cr:3, pre:['IT3510','IT3530','IT3600'],dom:'core',tags:['core','ud'],  st:'planned', ud:true,  diff:4, notes:'Requires IT 3510 + IT 3530 + IT 3600. Offered Fa/Sp only.'},
-  {id:'IT4600',  code:'IT 4600',  name:'Enterprise Network Architectures', cr:3, pre:['IT3600'],               dom:'core', tags:['core','ud','crit'],st:'planned',ud:true, diff:4, notes:'CRITICAL PATH: Prereq for IT 4750 Capstone. Requires IT 3600.'},
-  {id:'CYBR4700',code:'CYBR 4700',name:'Enterprise Cybersecurity Mgmt',   cr:3, pre:['CYBR2700','INFO3430'],   dom:'security',tags:['core','sec','ud','crit'],st:'planned',ud:true,diff:4, notes:'CRITICAL PATH: Prereq for IT 4750 Capstone. Requires CYBR 2700 + INFO 3430.'},
-  {id:'IT4750',  code:'IT 4750',  name:'IT Operations Capstone',           cr:3, pre:['IT4600','CYBR4700'],     dom:'core', tags:['core','ud','cap','crit'],st:'planned',ud:true,diff:5, notes:'🎓 GRADUATION CAPSTONE. Requires IT 4600 AND CYBR 4700. Final semester.'},
+  // ── BI & BIG DATA CONCENTRATION (12cr) ───────────
+  {id:'INFO3130', code:'INFO 3130', name:'Applied Data Analytics',        cr:3, pre:['MGMT2340'],           dom:'bigdata', tags:['bd','ud','crit'],st:'planned', ud:true,  diff:4, notes:'⚠️ CRITICAL: Prereq MGMT 2340. Unlocks INFO 4120, INFO 4130. Take Spring 2027.'},
+  {id:'INFO4120', code:'INFO 4120', name:'Data Visualization',            cr:3, pre:['INFO3130'],           dom:'bigdata', tags:['bd','ud'],       st:'planned', ud:true,  diff:4, notes:'Prereq: INFO 3130.'},
+  {id:'INFO4130', code:'INFO 4130', name:'Data Science & Big Data Analytics',cr:3,pre:['INFO3130'],         dom:'bigdata', tags:['bd','ud'],       st:'planned', ud:true,  diff:4, notes:'Prereq: INFO 3130.'},
+  {id:'INFO3410', code:'INFO 3410', name:'Database Systems & Warehousing',cr:3, pre:['INFO2410'],           dom:'bigdata', tags:['bd','ud'],       st:'planned', ud:true,  diff:3, notes:'Prereq: INFO 2410 (completed).'},
 
-  // ── BI & BIG DATA CONCENTRATION (12 credits required) ──
-  {id:'INFO3130',code:'INFO 3130',name:'Applied Data Analytics',           cr:3, pre:['MGMT2340'],              dom:'bigdata',tags:['bd','ud','crit'],st:'planned',ud:true, diff:3, notes:'BI & Big Data concentration entry course. CRITICAL: Prereq for INFO 4120 + INFO 4130. Prereq: MGMT 2340 (Fall 2026). Plan Spring 2027.'},
-  {id:'INFO4120',code:'INFO 4120',name:'Data Visualization',               cr:3, pre:['INFO2410','INFO3130'],    dom:'bigdata',tags:['bd','ud'],     st:'planned', ud:true,  diff:3, notes:'BI & Big Data — 2nd of 4 courses. Prereq: INFO 3130. Offered Fa/Sp only.'},
-  {id:'INFO4130',code:'INFO 4130',name:'Data Science & Big Data Analytics',cr:3, pre:['INFO3130'],               dom:'bigdata',tags:['bd','ud'],     st:'planned', ud:true,  diff:4, notes:'BI & Big Data — 3rd of 4 courses. Prereq: INFO 3130. Offered Fa/Sp only.'},
-  {id:'INFO3410',code:'INFO 3410',name:'Database Systems & Warehousing',   cr:3, pre:['INFO2410'],               dom:'bigdata',tags:['bd','ud'],     st:'planned', ud:true,  diff:3, notes:'BI & Big Data — 4th course (instead of IT 4810R internship). Prereq: INFO 2410 (done). Offered Fa/Sp/Su.'},
-
-  // ── APPLICATION DOMAIN — Digital Media (need 2 more cr) ──
-  {id:'DWDD1600',code:'DWDD 1600',name:'Web Design Fundamentals',          cr:2, pre:[],                        dom:'info', tags:['domain'],        st:'planned', ud:false, diff:2, notes:'Application Domain: Digital Media — completes domain (4 + 2 = 6 credits). Check with advisor for approved alternatives.'},
+  // ── APPLICATION DOMAIN — 2cr still needed ─────────
+  {id:'DGM3120G', code:'DGM 3120G', name:'Digital Media Elective (2cr)',  cr:2, pre:[],                   dom:'core',    tags:['core'],          st:'planned', ud:false, diff:1, notes:'Need 2 more credits to finish Application Domain. Options: DWDD 1600 or DGM 3120G.'},
 ];
 
-// ═══ SEMESTER CONFIG ═══
-const SEMS = ['Summer 2026','Fall 2026','Spring 2027','Fall 2027'];
+// ═══ SEMESTER PLAN ═══
+const SEMS = ['Summer 2026','Fall 2026','Spring 2027','Summer 2027','Fall 2027'];
 const SCOL = {
-  'Summer 2026': '#7c3aed',
-  'Fall 2026':   '#2563eb',
-  'Spring 2027': '#16a34a',
-  'Fall 2027':   '#db2777',
+  'Summer 2026':'#d97706',
+  'Fall 2026':  '#2563eb',
+  'Spring 2027':'#16a34a',
+  'Summer 2027':'#7c3aed',
+  'Fall 2027':  '#db2777',
 };
 
 const DEFPLAN = {
   'Summer 2026': ['CS1410','CS2300','INFO2420','IT2600'],
   'Fall 2026':   ['CYBR2700','ENGL2100','IT2530','MGMT2340','PHYS2010','PHYS2015'],
-  'Spring 2027': ['INFO3430','IT3200','INFO3130','IT3510','IT3530','INFO3300'],
-  'Fall 2027':   ['IT3600','INFO3410','INFO4120','INFO4130','IT4600','CYBR4700'],
+  'Spring 2027': ['INFO3430','IT3200','INFO3130','IT3510','IT3530'],
+  'Summer 2027': ['IT3600','INFO3410','INFO4120','INFO4130'],
+  'Fall 2027':   ['IT4300','IT4600','CYBR4700','IT4750'],
 };
 
+// Reset keys (new course database)
 let plan = JSON.parse(localStorage.getItem('uvu_plan3') || 'null');
 if (!plan) plan = JSON.parse(JSON.stringify(DEFPLAN));
 
@@ -691,25 +642,7 @@ function save() {
   localStorage.setItem('uvu_sts3', JSON.stringify(sts));
 }
 
-// ── DOMAIN & STATUS COLORS ──
-const DC = {
-  core:     '#2563eb',
-  ge:       '#16a34a',
-  security: '#db2777',
-  bigdata:  '#0d9488',
-  cs:       '#7c3aed',
-  info:     '#ea580c',
-  math:     '#059669',
-  mgmt:     '#d97706',
-};
-const TC = {
-  completed:  '#16a34a',
-  inprogress: '#6367FF',
-  planned:    '#8494FF',
-  blocked:    '#db2777',
-};
-
-// ── HELPERS ──
+// ═══ HELPERS ═══
 const gc   = id => CS.find(c => c.id === id);
 const gst  = id => sts[id] || (gc(id) ? gc(id).st : 'planned');
 const gsem = id => { for (const [s,ids] of Object.entries(plan)) if (ids.includes(id)) return s; return null; };
@@ -736,29 +669,32 @@ const tcr  = arr => CS.filter(c => arr.includes(gst(c.id))).reduce((s,c) => s+c.
 const udcr = arr => CS.filter(c => c.ud && arr.includes(gst(c.id))).reduce((s,c) => s+c.cr, 0);
 const unplaced = () => { const pl = new Set(Object.values(plan).flat()); return CS.filter(c => !pl.has(c.id) && gst(c.id)!=='completed' && gst(c.id)!=='inprogress'); };
 
+const DC = {core:'#2563eb', ge:'#16a34a', security:'#db2777', bigdata:'#0d9488'};
+const TC = {completed:'#16a34a', inprogress:'#d97706', planned:'#6367FF', blocked:'#ef4444'};
 const TAGMAP = {
   bd:   {c:'t-bd',  l:'Big Data'},
   sec:  {c:'t-sec', l:'Security'},
-  ge:   {c:'t-ge',  l:'Gen Ed'},
-  we:   {c:'t-we',  l:'Writing ✓'},
+  ge:   {c:'t-ge',  l:'GE'},
+  we:   {c:'t-we',  l:'WE'},
   cap:  {c:'t-cap', l:'Capstone'},
   crit: {c:'t-crit',l:'Critical'},
-  domain: {c:'t-ge', l:'Domain'},
+  ud:   {c:'t-ud',  l:'Upper Div'},
 };
 
 function mkTags(c) {
-  return c.tags.filter(t => TAGMAP[t]).slice(0,2).map(t =>
+  return c.tags.filter(t => TAGMAP[t]).slice(0,3).map(t =>
     `<span class="tg ${TAGMAP[t].c}">${TAGMAP[t].l}</span>`).join('');
 }
 
 function diff2str(d) {
-  return `<span style="color:#6367FF">${'●'.repeat(d)}</span><span style="color:#e5e7eb">${'●'.repeat(5-d)}</span>`;
+  const filled = '●'.repeat(d), empty = '○'.repeat(5-d);
+  return `<span style="color:#334155">${filled}</span><span style="color:#cbd5e1">${empty}</span>`;
 }
 
 function cardH(c) {
   const s = cst(c.id);
   const tg = mkTags(c);
-  const col = DC[c.dom] || '#6367FF';
+  const col = DC[c.dom];
   return `<div class="cc d-${c.dom} st-${s}" draggable="true"
     ondragstart="ds(event,'${c.id}')" ondragend="de(event)" onclick="om('${c.id}')"
     id="cd-${c.id}">
@@ -772,7 +708,7 @@ function cardH(c) {
   </div>`;
 }
 
-// ── DRAG & DROP ──
+// ═══ DRAG & DROP ═══
 let dgId = null;
 function ds(e,id){ dgId=id; e.currentTarget.classList.add('dragging'); e.dataTransfer.effectAllowed='move'; }
 function de(e){ document.querySelectorAll('.dragging').forEach(x=>x.classList.remove('dragging')); document.querySelectorAll('.dov').forEach(x=>x.classList.remove('dov')); }
@@ -781,7 +717,7 @@ function dlv(e){ e.currentTarget.classList.remove('dov'); }
 function dp(e,sem){
   e.preventDefault(); e.currentTarget.classList.remove('dov');
   if (!dgId) return;
-  if (sem!=='pool' && !preMet(dgId,sem)) warn(`⚠ Prerequisites not met for ${sem}! Check the Prereq Map.`);
+  if (sem!=='pool' && !preMet(dgId,sem)) warn(`⚠ Prerequisites not met for ${sem}. Check the Prereq Map.`);
   for (const [s,ids] of Object.entries(plan)) { const i=ids.indexOf(dgId); if(i>-1) ids.splice(i,1); }
   if (sem!=='pool') { if(!plan[sem]) plan[sem]=[]; plan[sem].push(dgId); }
   save(); rend(); stats(); dgId=null;
@@ -789,31 +725,29 @@ function dp(e,sem){
 
 function warn(m){
   const w=document.createElement('div'); w.className='warn'; w.textContent=m;
-  document.body.appendChild(w); setTimeout(()=>w.remove(),4500);
+  document.body.appendChild(w); setTimeout(()=>w.remove(),4000);
 }
 
-// ── RENDER PLANNER ──
+// ═══ RENDER PLANNER ═══
 function rend(){
   const up = unplaced();
   document.getElementById('pool').innerHTML = up.map(c=>cardH(c)).join('') ||
-    '<div class="empty-drop">✓ All courses placed</div>';
+    '<div class="empty-drop">All courses placed!</div>';
   document.getElementById('pc').textContent = up.length;
 
   document.getElementById('kan').innerHTML = SEMS.map(sem => {
     const crs = (plan[sem]||[]).map(id=>gc(id)).filter(Boolean);
     const cr  = crs.reduce((s,c)=>s+c.cr, 0);
     const col = SCOL[sem];
-    const tooHeavy = cr > 18;
-    const flag = tooHeavy
-      ? `<span style="color:#db2777;font-size:11px">⚠ ${cr}cr heavy</span>`
-      : `<span style="color:${col}">${cr}cr</span>`;
+    const flag = cr>19 ? `<span style="color:#ef4444;font-weight:700">⚠ ${cr}cr</span>` :
+                 cr<6  ? `<span style="color:#94a3b8">${cr}cr</span>` :
+                         `<span style="color:${col}">${cr}cr</span>`;
     return `<div class="scol">
-      <div class="sh" style="border-top:3px solid ${col};color:${col}">
-        <span>${sem}</span>
-        <span class="sh-cr" style="color:${col};border-color:${col}60">${flag}</span>
+      <div class="sh" style="border-top:3px solid ${col}">
+        <span style="color:${col};font-weight:800">${sem}</span>
+        <span class="sh-cr" style="color:${col};border-color:${col}50;background:${col}10">${flag}</span>
       </div>
-      <div class="sbody" id="sb-${sem.replace(/ /g,'_')}"
-           ondragover="dov(event,'${sem}')" ondrop="dp(event,'${sem}')" ondragleave="dlv(event)">
+      <div class="sbody" ondragover="dov(event,'${sem}')" ondrop="dp(event,'${sem}')" ondragleave="dlv(event)">
         ${crs.map(c=>cardH(c)).join('')}
         ${crs.length===0 ? '<div class="empty-drop">Drop courses here</div>' : ''}
       </div>
@@ -821,21 +755,19 @@ function rend(){
   }).join('');
 }
 
-// ── STATS ──
+// ═══ STATS ═══
 function stats(){
-  const done = tcr(['completed']);
-  const ip   = tcr(['inprogress']);
-  const ud   = udcr(['completed']);
-  const earned = done + ip;
+  const done = tcr(['completed']); const ip = tcr(['inprogress']);
+  const ud = udcr(['completed']); const earned = done + ip;
   document.getElementById('s-done').textContent = earned;
-  document.getElementById('s-ud').textContent   = ud;
+  document.getElementById('s-ud').textContent = ud;
   const el = document.getElementById('s-status');
-  if (earned >= 100 && ud >= 30) { el.textContent = 'ON TRACK'; el.className = 'ok'; }
-  else if (earned >= 70)         { el.textContent = 'IN PROGRESS'; el.className = 'yw'; }
-  else                           { el.textContent = 'BUILDING'; el.className = 'pk'; }
+  if (earned >= 105 && ud >= 35) { el.textContent = 'ON TRACK'; el.className = 'ok'; }
+  else if (earned >= 68)         { el.textContent = 'IN PROGRESS'; el.className = 'yw'; }
+  else                           { el.textContent = 'EARLY STAGE'; el.className = 'pk'; }
 }
 
-// ── TAB SWITCH ──
+// ═══ TAB SWITCH ═══
 function sw(name){
   document.querySelectorAll('.tab').forEach((t,i) => {
     t.classList.toggle('active', ['planner','graph','progress','binder'][i]===name);
@@ -848,59 +780,37 @@ function sw(name){
   if (name==='binder')   rendBinder();
 }
 
-// ── MODAL ──
+// ═══ MODAL ═══
 function om(id){
   const c = gc(id); if (!c) return;
   const s = gst(id);
   const pre = c.pre.map(pid=>{
     const pc=gc(pid); const ps=gst(pid);
     const ok=ps==='completed'||ps==='inprogress';
-    return `<span class="pch" style="border-color:${ok?'#16a34a':'#db2777'};color:${ok?'#16a34a':'#db2777'}">${pc?pc.code:pid} ${ok?'✓':'✗'}</span>`;
-  }).join('') || `<span style="color:var(--muted);font-size:11px">None</span>`;
+    return `<span class="pch" style="border-color:${ok?'#16a34a':'#ef4444'}">${pc?pc.code:pid} ${ok?'✓':'✗'}</span>`;
+  }).join('') || '<span style="color:#94a3b8;font-size:10px">None</span>';
   const unl = CS.filter(x=>x.pre.includes(id));
-  const sem = gsem(id);
-  const col = DC[c.dom] || '#6367FF';
+  const sem = gsem(id); const col = DC[c.dom];
 
   document.getElementById('mc').innerHTML = `
     <button class="mc" onclick="cm()">×</button>
-    <div style="color:${col};font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:1px;margin-bottom:7px;background:${col}18;padding:4px 10px;border-radius:6px;display:inline-block">
-      ${c.dom.toUpperCase()} · ${c.cr} credits${c.ud?' · UPPER DIVISION':''}
+    <div style="color:${col};font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:5px;font-family:monospace">
+      ${c.dom.toUpperCase()} · ${c.cr} Credits${c.ud?' · Upper Division':''}
     </div>
     <h2>${c.name}</h2>
-    <div style="color:${col};font-size:13px;margin-bottom:16px;font-family:monospace;font-weight:700">${c.code}</div>
-
+    <div style="color:${col};font-size:12px;margin-bottom:14px;font-family:'Courier New',monospace;font-weight:700">${c.code}</div>
     <div class="mr">
       <label>Status</label>
       <select class="ss" onchange="chs('${id}',this.value)">
-        ${['completed','inprogress','planned'].map(x=>`<option value="${x}" ${s===x?'selected':''}>${x.toUpperCase()}</option>`).join('')}
+        ${['completed','inprogress','planned'].map(x=>`<option value="${x}" ${s===x?'selected':''}>${x.charAt(0).toUpperCase()+x.slice(1)}</option>`).join('')}
       </select>
     </div>
-    <div class="mr">
-      <label>Semester</label>
-      <span style="color:var(--text2);font-weight:700;font-size:12px">${sem||'Unplanned'}</span>
-    </div>
-    <div class="mr">
-      <label>Difficulty</label>
-      <span style="font-size:13px">${diff2str(c.diff)}</span>
-    </div>
-    <div class="mr" style="flex-direction:column;gap:6px">
-      <label>Prerequisites</label>
-      <div style="display:flex;flex-wrap:wrap;gap:4px">${pre}</div>
-    </div>
-    ${unl.length?`
-    <div class="mr" style="flex-direction:column;gap:6px;margin-top:4px">
-      <label>Unlocks</label>
-      <div style="display:flex;flex-wrap:wrap;gap:4px">${unl.map(u=>`<span class="pch" style="border-color:${DC[u.dom]||'#6367FF'};color:${DC[u.dom]||'#6367FF'}">${u.code}</span>`).join('')}</div>
-    </div>`:''}
-    ${c.notes?`
-    <div class="mr" style="flex-direction:column;gap:6px;margin-top:4px">
-      <label>Notes</label>
-      <div style="font-size:11px;color:var(--muted);background:var(--bg3);padding:10px 12px;border-radius:8px;line-height:1.6;border:1px solid var(--border)">${c.notes}</div>
-    </div>`:''}
-    <div class="mr" style="margin-top:4px">
-      <label>Tags</label>
-      <div class="ctags">${mkTags(c)||'<span style="color:var(--dim);font-size:11px">None</span>'}</div>
-    </div>
+    <div class="mr"><label>Semester</label><span style="color:#475569;font-family:monospace;font-size:10px">${sem||'Unplanned'}</span></div>
+    <div class="mr"><label>Difficulty</label><span style="font-size:13px">${diff2str(c.diff)}</span></div>
+    <div class="mr" style="flex-direction:column;gap:5px"><label>Prerequisites</label><div style="display:flex;flex-wrap:wrap">${pre}</div></div>
+    ${unl.length?`<div class="mr" style="flex-direction:column;gap:5px"><label>Unlocks</label><div style="display:flex;flex-wrap:wrap">${unl.map(u=>`<span class="pch" style="border-color:${DC[u.dom]};color:${DC[u.dom]}">${u.code}</span>`).join('')}</div></div>`:''}
+    ${c.notes?`<div class="mr" style="flex-direction:column;gap:5px"><label>Notes</label><div style="font-size:10px;color:#475569;background:var(--bg3);padding:9px;border-radius:6px;line-height:1.6;border:1px solid #e2e8f0">${c.notes}</div></div>`:''}
+    <div class="mr"><label>Tags</label><div class="ctags">${mkTags(c)||'<span style="color:#94a3b8;font-size:9px">None</span>'}</div></div>
   `;
   document.getElementById('modal').style.display='flex';
 }
@@ -908,10 +818,10 @@ function chs(id,s){ sts[id]=s; save(); rend(); stats(); }
 function cm(){ document.getElementById('modal').style.display='none'; }
 function cmi(e){ if(e.target.id==='modal') cm(); }
 
-// ── PREREQ GRAPH ──
+// ═══ PREREQ GRAPH ═══
 function rendGraph(){
   const svg = document.getElementById('gsvg');
-  const main = CS.filter(c => c.dom!=='ge' || c.tags.includes('bd') || c.tags.includes('domain'));
+  const main = CS.filter(c => c.dom!=='ge');
   const memo = {};
   function lay(id){
     if(memo[id]!==undefined)return memo[id];
@@ -926,12 +836,10 @@ function rendGraph(){
   const byL=[];
   for(let i=0;i<=maxL;i++)byL[i]=[];
   main.forEach(c=>byL[memo[c.id]||0].push(c));
-  const nW=126,nH=36,hG=28,vG=8;
+  const nW=128,nH=34,hG=26,vG=10;
   const colW=nW+hG;
   const pos={};
-  byL.forEach((layer,li)=>{
-    layer.forEach((c,ci)=>{ pos[c.id]={x:li*colW+6, y:ci*(nH+vG)+10}; });
-  });
+  byL.forEach((layer,li)=>{ layer.forEach((c,ci)=>{ pos[c.id]={x:li*colW+6, y:ci*(nH+vG)+10}; }); });
   const tH=Math.max(...Object.values(pos).map(p=>p.y))+nH+30;
   const tW=(maxL+1)*colW+12;
   svg.setAttribute('viewBox',`0 0 ${tW} ${tH}`);
@@ -948,234 +856,198 @@ function rendGraph(){
       const x1=f.x+nW,y1=f.y+nH/2,x2=t.x,y2=t.y+nH/2;
       const mx=(x1+x2)/2;
       ed+=`<path d="M${x1},${y1} C${mx},${y1} ${mx},${y2} ${x2},${y2}"
-        stroke="rgba(99,103,255,.18)" stroke-width="1.5" fill="none"
+        stroke="rgba(99,103,255,.25)" stroke-width="1.5" fill="none"
         class="eg" data-f="${pid}" data-t="${c.id}"/>`;
     });
   });
   main.forEach(c=>{
     if(!pos[c.id])return;
-    const{x,y}=pos[c.id];
-    const s=cst(c.id); const col=DC[c.dom]||'#6367FF'; const sc=TC[s];
+    const{x,y}=pos[c.id]; const s=cst(c.id); const col=DC[c.dom]; const sc=TC[s];
     nd+=`<g class="ng" data-id="${c.id}" onclick="om('${c.id}')"
       onmouseenter="hl('${c.id}')" onmouseleave="uhl()" style="cursor:pointer">
-      <rect x="${x}" y="${y}" width="${nW}" height="${nH}" rx="6"
-        fill="white" stroke="${sc}" stroke-width="1.5"
-        style="filter:drop-shadow(0 1px 4px rgba(0,0,0,.08))"/>
-      <rect x="${x}" y="${y}" width="4" height="${nH}" rx="2" fill="${col}"/>
-      <text x="${x+10}" y="${y+14}" font-size="10" fill="${col}" font-weight="800"
-        font-family="'SF Mono','Fira Code',monospace">${c.code}</text>
-      <text x="${x+10}" y="${y+27}" font-size="8.5" fill="#6b7280"
-        font-family="system-ui,-apple-system,sans-serif">
+      <rect x="${x}" y="${y}" width="${nW}" height="${nH}" rx="5"
+        fill="white" stroke="${sc}" stroke-width="1.5" style="filter:drop-shadow(0 1px 3px rgba(0,0,0,.08))"/>
+      <rect x="${x}" y="${y}" width="3.5" height="${nH}" rx="2" fill="${col}"/>
+      <text x="${x+9}" y="${y+13}" font-size="9.5" fill="${col}" font-weight="800"
+        font-family="'Courier New',monospace">${c.code}</text>
+      <text x="${x+9}" y="${y+25}" font-size="8" fill="#64748b" font-family="-apple-system,sans-serif">
         ${c.name.length>17?c.name.slice(0,16)+'…':c.name}
       </text>
-      <circle cx="${x+nW-8}" cy="${y+nH/2}" r="4.5" fill="${sc}"/>
+      <circle cx="${x+nW-8}" cy="${y+nH/2}" r="4" fill="${sc}"/>
     </g>`;
   });
-  svg.innerHTML=`<defs><style>
-    .ng:hover rect:first-of-type { filter: drop-shadow(0 2px 8px rgba(99,103,255,.2)); stroke-width:2; }
-    svg { background: #F4F5FF; }
-  </style></defs>${ed}${nd}`;
+  svg.innerHTML=`<defs><style>.ng:hover rect:first-of-type{filter:drop-shadow(0 4px 8px rgba(0,0,0,.12))}</style></defs>${ed}${nd}`;
 }
 function hl(id){
   const c=gc(id);if(!c)return;
   const rel=new Set([id,...c.pre]);
   CS.forEach(x=>{if(x.pre.includes(id))rel.add(x.id);});
-  document.querySelectorAll('.ng').forEach(n=>{n.style.opacity=rel.has(n.dataset.id)?'1':'0.15';});
+  document.querySelectorAll('.ng').forEach(n=>{n.style.opacity=rel.has(n.dataset.id)?'1':'0.1';});
   document.querySelectorAll('.eg').forEach(e=>{
     const h=rel.has(e.dataset.f)&&rel.has(e.dataset.t);
-    e.setAttribute('stroke',h?'rgba(99,103,255,.85)':'rgba(99,103,255,.05)');
+    e.setAttribute('stroke',h?'rgba(99,103,255,.85)':'rgba(99,103,255,.04)');
     e.setAttribute('stroke-width',h?'2.5':'1');
   });
 }
 function uhl(){
   document.querySelectorAll('.ng').forEach(n=>n.style.opacity='1');
   document.querySelectorAll('.eg').forEach(e=>{
-    e.setAttribute('stroke','rgba(99,103,255,.18)');e.setAttribute('stroke-width','1.5');
+    e.setAttribute('stroke','rgba(99,103,255,.25)');e.setAttribute('stroke-width','1.5');
   });
 }
 
-// ── PROGRESS ──
+// ═══ PROGRESS ═══
 function rendProgress(){
   const done=tcr(['completed']),ip=tcr(['inprogress']),pl=tcr(['planned']);
-  const total = 122;
+  const total=CS.reduce((s,c)=>s+c.cr,0);
   const udD=udcr(['completed']),udP=udcr(['completed','planned','inprogress']);
   const earned=done+ip;
+
+  // GE Checklist — actual UVU requirements
   const geReqs=[
     {n:'ENGL 1010 — Intro Writing',          id:'ENGL1010'},
     {n:'ENGL 2010 — Intermediate Writing',   id:'ENGL2010'},
-    {n:'ENGL 2100 — Technical Comm (WE)',    id:'ENGL2100'},
-    {n:'MATH 1060 — Trigonometry',           id:'MATH1060'},
     {n:'POLS 1000 — American Heritage',      id:'POLS1000'},
-    {n:'PHIL 205G — Ethics & Values (GI)',   id:'PHIL205G'},
-    {n:'BIOL 1010 — General Biology',        id:'BIOL1010'},
-    {n:'METO 1010 — Meteorology',            id:'METO1010'},
-    {n:'PHYS 2010 — College Physics I',      id:'PHYS2010'},
-    {n:'HLTH 1100 — Personal Health',        id:'HLTH1100'},
-    {n:'THEA 1023 — Intro to Film',          id:'THEA1023'},
-    {n:'COMM 2110 — Interpersonal Comm',     id:'COMM2110'},
+    {n:'PHIL 205G — Ethics & Values',        id:'PHIL205G'},
+    {n:'BIOL 1010 — Life Science',           id:'BIOL1010'},
+    {n:'METO 1010 — Physical Science',       id:'METO1010'},
+    {n:'COMM 2110 — Behavioral Science',     id:'COMM2110'},
+    {n:'THEA 1023 — Fine Arts',              id:'THEA1023'},
+    {n:'HLTH 1100 — Health/PE',              id:'HLTH1100'},
+    {n:'ENGL 2100 — Tech Comm (WE)',         id:'ENGL2100'},
+    {n:'PHYS 2010 — Physics (in progress)',  id:'PHYS2010'},
   ];
-  const cp=['IT2600','MGMT2340','INFO3130','INFO3430','IT3600','IT4600','CYBR4700','IT4750'];
+
+  // Critical Path to graduation
+  const cp=['IT2600','CYBR2700','CYBR4700','IT3600','IT4600','IT4750','INFO3130'];
+
+  // BI & Big Data Concentration
   const bd=['MGMT2340','INFO3130','INFO4120','INFO4130','INFO3410'];
-  const we=CS.filter(c=>c.tags.includes('we'));
-  const weDone=we.filter(c=>gst(c.id)==='completed'||gst(c.id)==='inprogress').length;
-  const icons = {
-    completed:  `<span style="color:#16a34a;font-size:14px">✓</span>`,
-    inprogress: `<span style="color:#6367FF;font-size:12px">◐</span>`,
-    planned:    `<span style="color:#8494FF;font-size:12px">○</span>`,
-    blocked:    `<span style="color:#db2777;font-size:12px">✗</span>`,
+
+  // Writing Enriched
+  const we = CS.filter(c=>c.tags.includes('we'));
+  const weDone = we.filter(c=>gst(c.id)==='completed').length;
+
+  const icons={
+    completed: `<span style="color:#16a34a;font-weight:700">✓</span>`,
+    inprogress:`<span style="color:#d97706;font-weight:700">◐</span>`,
+    planned:   `<span style="color:#6367FF">○</span>`,
+    blocked:   `<span style="color:#ef4444;font-weight:700">✗</span>`,
   };
 
   document.getElementById('tp-progress').innerHTML=`
     <div class="prog-banner">
-      <h2>🎓 Target Graduation: Summer – Fall 2027</h2>
-      <p>${earned} credits earned/active · ${pl} credits planned · Need ${total - earned} more to graduate</p>
+      <h2>🎓 Target Graduation: Summer or Fall 2027</h2>
+      <p>${earned} credits earned/in-progress &nbsp;·&nbsp; ${pl} credits planned &nbsp;·&nbsp; ${Math.max(0,122-earned-pl)} still needed &nbsp;·&nbsp; Advisor: Lindsey Cracroft (LCracroft@uvu.edu)</p>
     </div>
     <div class="pg-grid">
       <div class="pg p-cy">
-        <h3 style="color:var(--primary)">Total Credits Progress</h3>
-        <div class="pbw"><div class="pb" style="background:linear-gradient(90deg,var(--primary),var(--primary2));width:${Math.min(100,Math.round((earned/total)*100))}%"></div></div>
-        <div class="pl"><span>${earned} / ${total} credits</span><span>${Math.round((earned/total)*100)}%</span></div>
-        <div style="font-size:11px;color:var(--muted);margin-top:6px;font-weight:600">${ip}cr active this semester · ${done}cr fully completed</div>
+        <h3 style="color:var(--cyan)">Total Credits</h3>
+        <div class="pbw"><div class="pb" style="background:linear-gradient(90deg,var(--cyan),var(--purple));width:${Math.min(100,Math.round((earned/122)*100))}%"></div></div>
+        <div class="pl"><span>${earned} / 122 required</span><span>${Math.round((earned/122)*100)}%</span></div>
+        <div style="font-size:9px;color:#94a3b8;margin-top:5px;font-family:monospace">${done}cr done · ${ip}cr active · ${pl}cr queued</div>
       </div>
       <div class="pg p-pu">
-        <h3 style="color:var(--violet)">Upper Division (3000+ level)</h3>
-        <div class="pbw"><div class="pb" style="background:linear-gradient(90deg,var(--violet),var(--primary));width:${Math.min(100,Math.round((udD/40)*100))}%"></div></div>
-        <div class="pl"><span>${udD} / 40 upper division credits</span><span>${Math.round((udD/40)*100)}%</span></div>
-        <div style="font-size:11px;color:var(--muted);margin-top:6px;font-weight:600">${udP} total planned upper div · need 37 more</div>
+        <h3 style="color:var(--purple)">Upper Division (3000+)</h3>
+        <div class="pbw"><div class="pb" style="background:linear-gradient(90deg,var(--purple),var(--pink));width:${Math.min(100,Math.round((udD/40)*100))}%"></div></div>
+        <div class="pl"><span>${udD} / 40 required</span><span>${Math.round((udD/40)*100)}%</span></div>
+        <div style="font-size:9px;color:#94a3b8;margin-top:5px;font-family:monospace">Currently have ${udD}cr · ${udP} total planned</div>
       </div>
       <div class="pg p-gn">
         <h3 style="color:var(--green)">Gen Ed Checklist</h3>
-        ${geReqs.map(r=>{
-          const s=cst(r.id);
-          const done2=s==='completed';
-          const ip2=s==='inprogress';
-          return`<div class="ri">
-            <span>${icons[s]||icons.planned}</span>
-            <span style="color:${done2?'var(--text)':ip2?'var(--primary)':'var(--muted)';};font-weight:${done2||ip2?'600':'400'}">${r.n}</span>
-            ${ip2?'<span style="font-size:9px;color:var(--primary);background:var(--bg3);padding:1px 6px;border-radius:5px;margin-left:auto;font-weight:700">Active</span>':''}
-          </div>`;
-        }).join('')}
+        ${geReqs.map(r=>{const s=cst(r.id);return`<div class="ri">${icons[s]||'<span style="color:#94a3b8">○</span>'}<span style="color:${s==='completed'?'#1e1b4b':s==='inprogress'?'#d97706':'#94a3b8'}">${r.n}</span></div>`;}).join('')}
       </div>
       <div class="pg p-pk">
-        <h3 style="color:var(--sec)">Critical Path to Graduation</h3>
-        ${cp.map(id=>{
-          const c=gc(id); const s=cst(id);
-          return`<div class="ri">
-            <span>${icons[s]||icons.planned}</span>
-            <span style="color:${DC[c?c.dom:'core']};font-family:monospace;font-size:11px;font-weight:800">${c?c.code:id}</span>
-            <span style="font-size:11px;color:var(--muted);margin-left:6px">${c?c.name:''}</span>
-            ${s==='blocked'?'<span style="font-size:9px;color:var(--sec);background:#fce7f3;padding:1px 6px;border-radius:5px;margin-left:auto;font-weight:700">Blocked</span>':''}
-          </div>`;
-        }).join('')}
+        <h3 style="color:var(--pink)">Critical Path to Graduation</h3>
+        ${cp.map(id=>{const c=gc(id);const s=cst(id);return`<div class="ri">
+          ${icons[s]||'○'}
+          <span style="color:${s==='blocked'?'#ef4444':s==='completed'?'#1e1b4b':s==='inprogress'?'#d97706':'#6b7280'};font-family:monospace;font-size:10px;font-weight:700">${c?c.code:id}</span>
+          <span style="font-size:10px;color:#94a3b8;margin-left:auto">${c?c.name:''}</span>
+        </div>`;}).join('')}
       </div>
-      <div class="pg p-cy">
-        <h3 style="color:var(--bd)">BI &amp; Big Data Concentration</h3>
-        <div style="font-size:11px;color:var(--muted);margin-bottom:10px;font-weight:600;background:rgba(13,148,136,.08);padding:6px 10px;border-radius:8px">
-          12 credits required · All 4 courses must be completed
-        </div>
-        ${bd.map(id=>{
-          const c=gc(id); const s=cst(id);
-          return`<div class="ri">
-            <span>${icons[s]||icons.planned}</span>
-            <span style="color:#0d9488;font-family:monospace;font-size:11px;font-weight:800">${c?c.code:id}</span>
-            <span style="font-size:11px;color:var(--muted);margin-left:6px">${c?c.name:''}</span>
-          </div>`;
-        }).join('')}
+      <div class="pg p-bd">
+        <h3 style="color:var(--bd)">BI & Big Data Concentration (12cr)</h3>
+        ${bd.map(id=>{const c=gc(id);const s=cst(id);return`<div class="ri">
+          ${icons[s]||'○'}
+          <span style="color:${s==='completed'?'#1e1b4b':s==='inprogress'?'#d97706':'#6b7280'};font-family:monospace;font-size:10px">${c?c.code:id}</span>
+          <span style="font-size:10px;color:#94a3b8;margin-left:auto">${c?c.name:''}</span>
+        </div>`;}).join('')}
       </div>
       <div class="pg p-yw">
-        <h3 style="color:var(--mgmt-col)">Writing Enriched (WE)</h3>
-        <div class="pbw"><div class="pb" style="background:linear-gradient(90deg,var(--mgmt-col),#fcd34d);width:${Math.round((weDone/2)*100)}%"></div></div>
-        <div class="pl" style="margin-bottom:10px"><span>${weDone} / 2 WE courses</span><span>${weDone>=2?'✓ Complete':'Still needed'}</span></div>
-        ${we.map(c=>{
-          const s=gst(c.id);
-          const done2=s==='completed';
-          const ip2=s==='inprogress';
-          return`<div class="ri">
-            <span>${icons[s]||icons.planned}</span>
-            <span style="color:${done2||ip2?'var(--text)':'var(--muted)'};font-weight:${done2||ip2?'600':'400'}">${c.code} — ${c.name}</span>
-            ${ip2?'<span style="font-size:9px;color:var(--primary);background:var(--bg3);padding:1px 6px;border-radius:5px;margin-left:auto;font-weight:700">Fall 2026</span>':''}
-          </div>`;
-        }).join('')}
+        <h3 style="color:var(--yellow)">Writing Enriched (need 2)</h3>
+        <div class="pbw"><div class="pb" style="background:linear-gradient(90deg,var(--yellow),#f59e0b);width:${Math.round((weDone/Math.max(we.length,1))*100)}%"></div></div>
+        <div class="pl" style="margin-bottom:8px"><span>${weDone} / ${we.length} courses</span></div>
+        ${we.map(c=>{const s=cst(c.id);return`<div class="ri">
+          ${icons[s]||'○'}
+          <span style="color:${s==='completed'?'#1e1b4b':s==='inprogress'?'#d97706':'#94a3b8'}">${c.code} — ${c.name}</span>
+        </div>`;}).join('')}
       </div>
     </div>
   `;
 }
 
-// ── BINDER ──
+// ═══ DOSSIER / BINDER ═══
 function rendBinder(){
-  const sections = [
-    {label:'CS / Programming',      col: DC.cs,       dom:'cs'},
-    {label:'IT Infrastructure',     col: DC.core,     dom:'core'},
-    {label:'INFO / Systems',        col: DC.info,     dom:'info'},
-    {label:'BI & Big Data',         col: DC.bigdata,  dom:'bigdata'},
-    {label:'Cybersecurity',         col: DC.security, dom:'security'},
-    {label:'MGMT / Stats',          col: DC.mgmt,     dom:'mgmt'},
-    {label:'Math',                  col: DC.math,     dom:'math'},
-    {label:'General Education',     col: DC.ge,       dom:'ge'},
+  const sections=[
+    {label:'Core IT',              col:DC.core,     dom:'core'},
+    {label:'Cybersecurity',        col:DC.security,  dom:'security'},
+    {label:'BI & Big Data',        col:DC.bigdata,   dom:'bigdata'},
+    {label:'General Education',    col:DC.ge,        dom:'ge'},
   ];
-  const statusLabels={completed:'Done',inprogress:'Active',planned:'Planned',blocked:'Blocked'};
-  const statusColors={
-    completed: {color:'#16a34a', bg:'#dcfce7'},
-    inprogress:{color:'#6367FF', bg:'#ede9fe'},
-    planned:   {color:'#8494FF', bg:'#eef0ff'},
-    blocked:   {color:'#db2777', bg:'#fce7f3'},
-  };
+  const icons={completed:'DONE',inprogress:'ACTIVE',planned:'PLANNED',blocked:'LOCKED'};
+  const scols={completed:'#16a34a',inprogress:'#d97706',planned:'#6367FF',blocked:'#ef4444'};
 
-  let html = `
-    <div class="binder-controls">
-      <button class="btn btn-cy" onclick="window.print()">🖨 Print Binder</button>
-      <button class="btn btn-pk" onclick="exportBinder()">⬇ Export CSV</button>
-      <p>All courses · Organized by domain · Prereq chains included</p>
-    </div>
-  `;
+  let html=`<div class="binder-controls">
+    <button class="btn btn-cy" onclick="window.print()">🖨 Print Binder</button>
+    <button class="btn btn-pk" onclick="exportBinder()">⬇ Export CSV</button>
+    <p>Print this tab for a physical binder · Organized by domain · Full prereq chains included</p>
+  </div>`;
 
-  sections.forEach(sec => {
-    const courses = CS.filter(c => c.dom === sec.dom);
-    if (!courses.length) return;
-    html += `<div class="b-section">
+  sections.forEach(sec=>{
+    const courses=CS.filter(c=>c.dom===sec.dom);
+    html+=`<div class="b-section">
       <div class="b-div" style="color:${sec.col};border-color:${sec.col}">
         ${sec.label}
-        <span class="b-count">· ${courses.length} courses · ${courses.reduce((s,c)=>s+c.cr,0)} credits</span>
+        <span class="b-count">${courses.length} courses · ${courses.reduce((s,c)=>s+c.cr,0)} credits</span>
       </div>
       <div class="b-cards">
         ${courses.map(c=>{
-          const s=cst(c.id); const sc=statusColors[s]||statusColors.planned; const dc=DC[c.dom]||'#6367FF';
+          const s=cst(c.id);const sc=scols[s];const dc=DC[c.dom];
           const pre=c.pre.map(pid=>{const pc=gc(pid);return`<span class="bcard-pre-chip">${pc?pc.code:pid}</span>`;}).join('');
-          const unl=CS.filter(x=>x.pre.includes(c.id)).map(u=>`<span class="bcard-pre-chip" style="background:${DC[u.dom]}1a;border-color:${DC[u.dom]}40;color:${DC[u.dom]}">${u.code}</span>`).join('');
+          const unl=CS.filter(x=>x.pre.includes(c.id)).map(u=>`<span class="bcard-pre-chip" style="border-color:#C9BEFF;color:${DC[u.dom]}">${u.code}</span>`).join('');
           const sem=gsem(c.id);
           return`<div class="bcard" style="border-left-color:${dc}">
-            <div class="bcard-status" style="color:${sc.color};border-color:${sc.color}60;background:${sc.bg}">${statusLabels[s]}</div>
+            <div class="bcard-status" style="color:${sc};border-color:${sc}40;background:${sc}15">${icons[s]}</div>
             <div class="bcard-code" style="color:${dc}">${c.code}</div>
             <div class="bcard-name">${c.name}</div>
-            <div class="bcard-row"><span>Credits:</span> <span>${c.cr}</span></div>
-            <div class="bcard-row"><span>Upper Div:</span> <span>${c.ud?'Yes — 3000+ level':'No'}</span></div>
-            <div class="bcard-row"><span>Difficulty:</span> <span>${diff2str(c.diff)}</span></div>
-            ${pre ? `<div class="bcard-row"><span>Prerequisites:</span></div><div class="bcard-pre">${pre}</div>` : '<div class="bcard-row"><span>Prerequisites:</span> <span>None</span></div>'}
-            ${unl ? `<div class="bcard-row" style="margin-top:6px"><span>Unlocks:</span></div><div class="bcard-pre">${unl}</div>` : ''}
-            ${c.notes ? `<div class="bcard-notes">${c.notes}</div>` : ''}
-            ${sem ? `<div class="bcard-sem">${sem}</div>` : ''}
+            <div class="bcard-row"><span>Credits:</span><span>${c.cr}${c.ud?' · Upper Div':''}</span></div>
+            <div class="bcard-row"><span>Difficulty:</span><span>${diff2str(c.diff)}</span></div>
+            ${pre?`<div class="bcard-row"><span>Prereqs:</span></div><div class="bcard-pre">${pre}</div>`:'<div class="bcard-row"><span>Prereqs:</span><span>None</span></div>'}
+            ${unl?`<div class="bcard-row" style="margin-top:4px"><span>Unlocks:</span></div><div class="bcard-pre">${unl}</div>`:''}
+            ${c.notes?`<div class="bcard-notes">${c.notes}</div>`:''}
+            ${sem?`<div class="bcard-sem">${sem}</div>`:''}
           </div>`;
         }).join('')}
       </div>
     </div>`;
   });
 
-  document.getElementById('tp-binder').innerHTML = html;
+  document.getElementById('tp-binder').innerHTML=html;
 }
 
 function exportBinder(){
-  const rows = [['Code','Name','Credits','Domain','Upper Div','Prereqs','Status','Semester','Difficulty','Notes']];
+  const rows=[['Code','Name','Credits','Domain','Upper Div','Prereqs','Status','Semester','Difficulty','Notes']];
   CS.forEach(c=>{
     rows.push([c.code,`"${c.name}"`,c.cr,c.dom,c.ud?'Yes':'No',`"${c.pre.join(', ')}"`,cst(c.id),gsem(c.id)||'Unplanned',c.diff,`"${c.notes}"`]);
   });
   const csv=rows.map(r=>r.join(',')).join('\n');
   const a=document.createElement('a');
   a.href='data:text/csv;charset=utf-8,'+encodeURIComponent(csv);
-  a.download='Heyam_UVU_IT_Degree_Plan.csv';
+  a.download='UVU_IT_Degree_Plan.csv';
   a.click();
 }
 
-// ── INIT ──
+// ═══ INIT ═══
 rend();
 stats();
 </script>
